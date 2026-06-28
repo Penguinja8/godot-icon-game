@@ -3,12 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bxs7ya3q8jgxu" path="res://player/player.gd" id="1_rkbax"]
 
+[sub_resource type="Curve" id="Curve_yw30f"]
+_data = [Vector2(0.023904383, 0.6859504), 0.0, 2.189624, 0, 0, Vector2(0.19123504, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.28925622), -0.29633987, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_g1dw6"]
+_data = [Vector2(0, 0.4958678), 0.0, 1.3483471, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5kg8m"]
 radius = 27.0
 height = 128.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1920400418]
 script = ExtResource("1_rkbax")
+acceleration_curve = SubResource("Curve_yw30f")
+jump_charge_curve = SubResource("Curve_g1dw6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=395879290]
 scale = Vector2(0.42187503, 1)
