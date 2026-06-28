@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cebbn0huuhvay"]
+
+[ext_resource type="Script" uid="uid://d3mbmm2cs00o6" path="res://song/sound.gd" id="1_tcdma"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_kye57"]
+
+[node name="Sound" type="AudioStreamPlayer" unique_id=1453038604]
+stream = SubResource("AudioStreamGenerator_kye57")
+script = ExtResource("1_tcdma")
