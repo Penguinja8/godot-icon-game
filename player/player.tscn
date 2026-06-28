@@ -8,15 +8,15 @@ _data = [Vector2(0.023904383, 0.6859504), 0.0, 2.189624, 0, 0, Vector2(0.1912350
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_g1dw6"]
-_data = [Vector2(0, 0.4958678), 0.0, 1.3483471, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.29464293), 0.0, 1.3483471, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_qjkh3"]
-_data = [Vector2(0, 0.25892866), 0.0, 4.631579, 0, 0, Vector2(0.27840912, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.25892866), 0.0, 4.631579, 0, 0, Vector2(0.5625, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_g6k8r"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.88392866), -0.33673474, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.8125001), -0.33673474, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5kg8m"]

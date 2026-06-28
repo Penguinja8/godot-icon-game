@@ -1,44 +1,9 @@
-[gd_scene format=3 uid="uid://xagb18oppop3"]
+[gd_scene format=4 uid="uid://xagb18oppop3"]
 
-[ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="1_dqxj6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
-size = Vector2(175, 20)
+[ext_resource type="TileSet" uid="uid://d3lundmkg1rd8" path="res://tileset/tileset.tres" id="2_kqun7"]
 
 [node name="Testlevle" type="Node2D" unique_id=1480749479]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=685327005]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=411192124]
-position = Vector2(56.5, 62)
-shape = SubResource("RectangleShape2D_5kg8m")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1798747364]
-position = Vector2(54, 63.5)
-scale = Vector2(1.390625, 0.1640625)
-texture = ExtResource("1_dqxj6")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=632527763]
-position = Vector2(214, -29)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2054087659]
-position = Vector2(56.5, 62)
-shape = SubResource("RectangleShape2D_5kg8m")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=2127725045]
-position = Vector2(54, 63.5)
-scale = Vector2(1.390625, 0.1640625)
-texture = ExtResource("1_dqxj6")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1667148736]
-position = Vector2(-1112, 15)
-scale = Vector2(7.5637417, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1373345670]
-position = Vector2(56.5, 62)
-shape = SubResource("RectangleShape2D_5kg8m")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3" unique_id=476387208]
-position = Vector2(54, 63.5)
-scale = Vector2(1.390625, 0.1640625)
-texture = ExtResource("1_dqxj6")
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1265491528]
+tile_map_data = PackedByteArray("AAAAAAAABAABAAEAAAABAAAABAABAAEAAAACAAAABAABAAEAAAADAAAABAABAAEAAAAEAAAABAABAAEAAAAFAAAABAABAAEAAAAAAP//BAABAAAAAAABAP//BAABAAAAAAACAP//BAABAAAAAAADAP//BAABAAAAAAAEAP//BAABAAAAAAAFAP//BAABAAAAAAAGAP//BAAHAAAAAAAGAAAABAAHAAEAAAAGAAEABAAHAAcAAAAFAAEABAABAAcAAAAEAAEABAABAAcAAAADAAEABAABAAcAAAACAAEABAABAAcAAAABAAEABAABAAcAAAAAAAEABAABAAcAAAD//wEABAAAAAcAAAD//wAABAAAAAEAAAD/////BAAAAAAAAAAJAP//BAABAAEAAAAKAP//BAABAAEAAAAIAP//BAAAAAEAAAAJAP7/BAABAAAAAAAKAP7/BAABAAAAAAAKAAAABAABAAcAAAAJAAAABAABAAcAAAALAAAABAAHAAcAAAALAP7/BAAHAAAAAAALAP//BAAHAAEAAAAIAP7/BAAAAAAAAAAIAAAABAAAAAcAAAA=")
+tile_set = ExtResource("2_kqun7")

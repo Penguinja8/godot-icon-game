@@ -7,12 +7,12 @@ const ACCELERATION = 400
 
 const DECELERATION = 900
 const AIR_BRAKE = .98
-const AIR_CONTROL = 150
+const AIR_CONTROL = 250
 
 const JUMP_CHARGE_DECEL = .99
 
 const MAX_JUMP_VELOCITY = -700.0
-const MAX_FALL_SPEED = 300
+const MAX_FALL_SPEED = 400
 const MAX_JUMP_CHARGE = .7
 var jump_charge = 0
 @export var jump_charge_curve: Curve
@@ -45,6 +45,7 @@ func _physics_process(delta):
 	elif Input.is_action_just_released("jump"):
 		if not $Coyote.is_stopped():
 			velocity.y = MAX_JUMP_VELOCITY * jump_charge_curve.sample(clampf(jump_charge, 0, MAX_JUMP_CHARGE)/MAX_JUMP_CHARGE)
+			jump_charge = 0
 		for tween in jump_tweens:
 			tween.kill()
 		for node in jump_charge_scaling:
@@ -52,9 +53,12 @@ func _physics_process(delta):
 			release_tween.tween_property(node, "scale", Vector2(node.scale.x, 1), .05)
 
 	var direction = Input.get_axis("left", "right")
-	if direction and direction * velocity.x >= 0:
+	if direction:
 		if is_on_floor():
-			velocity.x += ACCELERATION * delta * acceleration_curve.sample(velocity.x/MAX_SPEED) * direction
+			if direction * velocity.x >= 0:
+				velocity.x += ACCELERATION * delta * acceleration_curve.sample(velocity.x/MAX_SPEED) * direction
+			else:
+				velocity.x += DECELERATION * delta * direction
 		else:
 			velocity.x += AIR_CONTROL * delta * direction
 		velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)

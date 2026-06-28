@@ -6,6 +6,7 @@
 [node name="Main" type="Node2D" unique_id=1764917112]
 
 [node name="Testlevle" parent="." unique_id=1480749479 instance=ExtResource("1_53q0u")]
+position = Vector2(-13, 69)
 
 [node name="Player" parent="." unique_id=1920400418 instance=ExtResource("2_pjrb6")]
 position = Vector2(24, -27)
