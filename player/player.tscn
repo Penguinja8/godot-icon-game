@@ -11,6 +11,14 @@ point_count = 3
 _data = [Vector2(0, 0.4958678), 0.0, 1.3483471, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Curve" id="Curve_qjkh3"]
+_data = [Vector2(0, 0.25892866), 0.0, 4.631579, 0, 0, Vector2(0.27840912, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_g6k8r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.88392866), -0.33673474, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5kg8m"]
 radius = 27.0
 height = 128.0
@@ -19,6 +27,8 @@ height = 128.0
 script = ExtResource("1_rkbax")
 acceleration_curve = SubResource("Curve_yw30f")
 jump_charge_curve = SubResource("Curve_g1dw6")
+gravity_curve_falling = SubResource("Curve_qjkh3")
+gravity_curve_ascending = SubResource("Curve_g6k8r")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=395879290]
 scale = Vector2(0.42187503, 1)
@@ -28,3 +38,7 @@ texture = ExtResource("1_oul6g")
 shape = SubResource("CapsuleShape2D_5kg8m")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1326999267]
+
+[node name="Coyote" type="Timer" parent="." unique_id=1876098243]
+wait_time = 0.1
+one_shot = true

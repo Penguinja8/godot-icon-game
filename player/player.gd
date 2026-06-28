@@ -1,46 +1,63 @@
 extends CharacterBody2D
 
 
-const MAX_SPEED = 300.0
+const MAX_SPEED = 500.0
 const ACCELERATION = 400
 @export var acceleration_curve: Curve
 
 const DECELERATION = 900
 const AIR_BRAKE = .98
+const AIR_CONTROL = 150
 
-const JUMP_VELOCITY = -600.0
-const MAX_JUMP_VELOCITY = -600.0
+const JUMP_CHARGE_DECEL = .99
+
+const MAX_JUMP_VELOCITY = -700.0
 const MAX_FALL_SPEED = 300
 const MAX_JUMP_CHARGE = .7
 var jump_charge = 0
 @export var jump_charge_curve: Curve
 @onready var jump_charge_scaling = [$Sprite2D, $CollisionShape2D]
-
+var jump_tweens = []
+const gravity = 1200
+@export var gravity_curve_falling: Curve
+@export var gravity_curve_ascending: Curve
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if velocity.y > 0: # falling
+			velocity.y += gravity * delta * gravity_curve_falling.sample(abs(velocity.y)/MAX_FALL_SPEED)
+		else:
+			velocity.y += gravity * delta * gravity_curve_ascending.sample(velocity.y/MAX_JUMP_VELOCITY)
 		if velocity.y > MAX_FALL_SPEED:
 			velocity.y = MAX_FALL_SPEED
 
-	# Handle jump.
-	if Input.is_action_pressed("jump") and is_on_floor():
+	if is_on_floor():
+		$Coyote.start()
+	if Input.is_action_pressed("jump"):
+		velocity.x *= JUMP_CHARGE_DECEL
 		if Input.is_action_just_pressed("jump"):
 			for node in jump_charge_scaling:
 				var jump_tween = get_tree().create_tween()
+				jump_tweens.append(jump_tween)
 				jump_tween.tween_property(node, "scale", Vector2(node.scale.x, 0.5), MAX_JUMP_CHARGE)
 		jump_charge += delta
-	elif Input.is_action_just_released("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY * jump_charge_curve.sample(clampf(jump_charge, 0, MAX_JUMP_CHARGE)/MAX_JUMP_CHARGE)
+	elif Input.is_action_just_released("jump"):
+		if not $Coyote.is_stopped():
+			velocity.y = MAX_JUMP_VELOCITY * jump_charge_curve.sample(clampf(jump_charge, 0, MAX_JUMP_CHARGE)/MAX_JUMP_CHARGE)
+		for tween in jump_tweens:
+			tween.kill()
 		for node in jump_charge_scaling:
-				var release_tween = get_tree().create_tween()
-				release_tween.tween_property(node, "scale", Vector2(node.scale.x, 1), .05)
+			var release_tween = get_tree().create_tween()
+			release_tween.tween_property(node, "scale", Vector2(node.scale.x, 1), .05)
 
 	var direction = Input.get_axis("left", "right")
 	if direction and direction * velocity.x >= 0:
 		if is_on_floor():
 			velocity.x += ACCELERATION * delta * acceleration_curve.sample(velocity.x/MAX_SPEED) * direction
+		else:
+			velocity.x += AIR_CONTROL * delta * direction
+		velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	else:
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, DECELERATION*delta)
