@@ -24,6 +24,7 @@ radius = 27.0
 height = 128.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1920400418]
+collision_layer = 3
 script = ExtResource("1_rkbax")
 acceleration_curve = SubResource("Curve_yw30f")
 jump_charge_curve = SubResource("Curve_g1dw6")
@@ -38,7 +39,19 @@ texture = ExtResource("1_oul6g")
 shape = SubResource("CapsuleShape2D_5kg8m")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1326999267]
+position = Vector2(350, 0)
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+drag_vertical_offset = -0.1
+drag_top_margin = 0.5
+drag_bottom_margin = 0.5
+editor_draw_drag_margin = true
 
 [node name="Coyote" type="Timer" parent="." unique_id=1876098243]
 wait_time = 0.1
 one_shot = true
+
+[node name="CameraShiftLeft" type="Timer" parent="." unique_id=1104615337]
+one_shot = true
+
+[connection signal="timeout" from="CameraShiftLeft" to="." method="_on_camera_shift_left_timeout"]

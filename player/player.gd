@@ -9,11 +9,11 @@ const DECELERATION = 900
 const AIR_BRAKE = .98
 const AIR_CONTROL = 250
 
-const JUMP_CHARGE_DECEL = .99
+const JUMP_CHARGE_DECEL = 300
 
 const MAX_JUMP_VELOCITY = -700.0
 const MAX_FALL_SPEED = 400
-const MAX_JUMP_CHARGE = .7
+const MAX_JUMP_CHARGE = .5
 var jump_charge = 0
 @export var jump_charge_curve: Curve
 @onready var jump_charge_scaling = [$Sprite2D, $CollisionShape2D]
@@ -22,8 +22,16 @@ const gravity = 1200
 @export var gravity_curve_falling: Curve
 @export var gravity_curve_ascending: Curve
 
+
 func _physics_process(delta):
-	# Add the gravity.
+	# camera
+	if velocity.x < 0:
+		if $CameraShiftLeft.is_stopped():
+			$CameraShiftLeft.start()
+	else:
+		$CameraShiftLeft.stop()
+		$Camera2D.position = Vector2(350, 0)
+	# gravity
 	if not is_on_floor():
 		if velocity.y > 0: # falling
 			velocity.y += gravity * delta * gravity_curve_falling.sample(abs(velocity.y)/MAX_FALL_SPEED)
@@ -35,12 +43,12 @@ func _physics_process(delta):
 	if is_on_floor():
 		$Coyote.start()
 	if Input.is_action_pressed("jump"):
-		velocity.x *= JUMP_CHARGE_DECEL
+		velocity.x -= JUMP_CHARGE_DECEL * signf(velocity.x) * delta
 		if Input.is_action_just_pressed("jump"):
 			for node in jump_charge_scaling:
 				var jump_tween = get_tree().create_tween()
 				jump_tweens.append(jump_tween)
-				jump_tween.tween_property(node, "scale", Vector2(node.scale.x, 0.5), MAX_JUMP_CHARGE)
+				jump_tween.tween_property(node, "scale", Vector2(node.scale.x, 0.7), MAX_JUMP_CHARGE)
 		jump_charge += delta
 	elif Input.is_action_just_released("jump"):
 		if not $Coyote.is_stopped():
@@ -51,7 +59,6 @@ func _physics_process(delta):
 		for node in jump_charge_scaling:
 			var release_tween = get_tree().create_tween()
 			release_tween.tween_property(node, "scale", Vector2(node.scale.x, 1), .05)
-
 	var direction = Input.get_axis("left", "right")
 	if direction:
 		if is_on_floor():
@@ -61,7 +68,7 @@ func _physics_process(delta):
 				velocity.x += DECELERATION * delta * direction
 		else:
 			velocity.x += AIR_CONTROL * delta * direction
-		velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
+		#velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	else:
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, DECELERATION*delta)
@@ -69,3 +76,10 @@ func _physics_process(delta):
 			velocity.x *= AIR_BRAKE
 
 	move_and_slide()
+
+func die():
+	queue_free()
+
+
+func _on_camera_shift_left_timeout() -> void:
+	$Camera2D.position = Vector2.ZERO
