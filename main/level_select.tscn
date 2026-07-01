@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cxc2xwb7l57as"]
+
+[ext_resource type="Shader" uid="uid://b0o7mbf4m2uwh" path="res://main/panel.gdshader" id="1_4tpfh"]
+[ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="2_r4itp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nymmr"]
+shader = ExtResource("1_4tpfh")
+shader_parameter/my_texture = ExtResource("2_r4itp")
+
+[node name="LevelSelect" type="Control" unique_id=223753041]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=354181114]
+material = SubResource("ShaderMaterial_nymmr")
+layout_mode = 0
+offset_left = 140.0
+offset_top = 110.0
+offset_right = 1140.0
+offset_bottom = 610.0

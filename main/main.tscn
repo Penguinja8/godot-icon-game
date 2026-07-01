@@ -1,12 +1,29 @@
 [gd_scene format=3 uid="uid://bc5jgn1l7asty"]
 
-[ext_resource type="PackedScene" uid="uid://xagb18oppop3" path="res://tests/testlevle.tscn" id="1_53q0u"]
-[ext_resource type="PackedScene" uid="uid://bacd0gu1sywec" path="res://player/player.tscn" id="2_pjrb6"]
+[ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="1_53q0u"]
+[ext_resource type="Shader" uid="uid://b0o7mbf4m2uwh" path="res://main/panel.gdshader" id="1_pjrb6"]
 
-[node name="Main" type="Node2D" unique_id=1764917112]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwkvk"]
+shader = ExtResource("1_pjrb6")
+shader_parameter/my_texture = ExtResource("1_53q0u")
 
-[node name="Testlevle" parent="." unique_id=1480749479 instance=ExtResource("1_53q0u")]
-position = Vector2(-13, 69)
+[node name="Main" type="Control" unique_id=1806337700]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="Player" parent="." unique_id=1920400418 instance=ExtResource("2_pjrb6")]
-position = Vector2(24, -27)
+[node name="Panel" type="PanelContainer" parent="." unique_id=6331939]
+material = SubResource("ShaderMaterial_xwkvk")
+layout_mode = 0
+offset_right = 330.0
+offset_bottom = 415.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1034047247]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Panel/VBoxContainer" unique_id=2061405480]
+layout_mode = 2
+texture_normal = ExtResource("1_53q0u")
+
+[node name="TextureButton2" type="TextureButton" parent="Panel/VBoxContainer" unique_id=1331966487]
+layout_mode = 2
+texture_normal = ExtResource("1_53q0u")

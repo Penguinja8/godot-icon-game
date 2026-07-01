@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c417nimqe4alr"]
+
+[ext_resource type="Script" uid="uid://bs2e6aj7pf2yb" path="res://components/spike.gd" id="1_e1rne"]
+[ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="2_i1qxe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i50wy"]
+size = Vector2(96, 96)
+
+[node name="TallSpike" type="Area2D" unique_id=320102279]
+position = Vector2(0, -48)
+scale = Vector2(1, 2)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_e1rne")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1627189125]
+position = Vector2(-14.000001, 9.999999)
+rotation = 0.7853982
+scale = Vector2(0.5, 0.8)
+texture = ExtResource("2_i1qxe")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1107032956]
+position = Vector2(13.240269, 9.759731)
+rotation = 0.7853982
+scale = Vector2(0.8, 0.5)
+texture = ExtResource("2_i1qxe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1524676970]
+position = Vector2(0, 22)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_i50wy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

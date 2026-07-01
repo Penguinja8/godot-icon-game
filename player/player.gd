@@ -21,7 +21,6 @@ const gravity = 1200
 @export var gravity_curve_falling: Curve
 @export var gravity_curve_ascending: Curve
 
-
 func _physics_process(delta):
 	$Camera2D/CanvasLayer/Label.text = str(velocity.x)
 	# camera
