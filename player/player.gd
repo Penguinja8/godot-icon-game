@@ -1,22 +1,21 @@
 extends CharacterBody2D
 
-
-const MAX_SPEED = 500.0
+const MAIN_SPEED_CUTOFF = 600.0
 const ACCELERATION = 400
 @export var acceleration_curve: Curve
 
 const DECELERATION = 900
 const AIR_BRAKE = .98
-const AIR_CONTROL = 250
+const AIR_CONTROL = 200
 
 const JUMP_CHARGE_DECEL = 300
 
 const MAX_JUMP_VELOCITY = -700.0
 const MAX_FALL_SPEED = 400
-const MAX_JUMP_CHARGE = .5
+const MAX_JUMP_CHARGE = .6
 var jump_charge = 0
 @export var jump_charge_curve: Curve
-@onready var jump_charge_scaling = [$Sprite2D, $CollisionShape2D]
+@onready var jump_charge_scaling = [$Body, $CollisionShape2D]
 var jump_tweens = []
 const gravity = 1200
 @export var gravity_curve_falling: Curve
@@ -24,6 +23,7 @@ const gravity = 1200
 
 
 func _physics_process(delta):
+	$Camera2D/CanvasLayer/Label.text = str(velocity.x)
 	# camera
 	if velocity.x < 0:
 		if $CameraShiftLeft.is_stopped():
@@ -63,18 +63,24 @@ func _physics_process(delta):
 	if direction:
 		if is_on_floor():
 			if direction * velocity.x >= 0:
-				velocity.x += ACCELERATION * delta * acceleration_curve.sample(velocity.x/MAX_SPEED) * direction
+				if abs(velocity.x) < MAIN_SPEED_CUTOFF:
+					velocity.x += ACCELERATION * delta * acceleration_curve.sample(velocity.x/MAIN_SPEED_CUTOFF) * direction
+				else:
+					velocity.x += ACCELERATION * delta * (MAIN_SPEED_CUTOFF/(velocity.x ** 1.6)) * direction
 			else:
 				velocity.x += DECELERATION * delta * direction
 		else:
-			velocity.x += AIR_CONTROL * delta * direction
+			if abs(velocity.x) < MAIN_SPEED_CUTOFF or direction * velocity.x <= 0:
+				velocity.x += AIR_CONTROL * delta * direction
+			else:
+				velocity.x += AIR_CONTROL * delta * direction * (MAIN_SPEED_CUTOFF/(velocity.x ** 1.6))
 		#velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	else:
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, DECELERATION*delta)
 		else:
 			velocity.x *= AIR_BRAKE
-
+	$Body/Wheel.rotation += delta * velocity.x/(10*PI)
 	move_and_slide()
 
 func die():

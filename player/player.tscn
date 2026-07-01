@@ -2,10 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bxs7ya3q8jgxu" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Shader" uid="uid://c3thql7ugxeya" path="res://player/head.gdshader" id="2_g1dw6"]
+[ext_resource type="Shader" uid="uid://dpwejalns03cp" path="res://player/wheel.gdshader" id="4_yw30f"]
 
 [sub_resource type="Curve" id="Curve_yw30f"]
-_data = [Vector2(0.023904383, 0.6859504), 0.0, 2.189624, 0, 0, Vector2(0.19123504, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.28925622), -0.29633987, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0.023904383, 0.6859504), 0.0, 2.189624, 0, 0, Vector2(0.123505965, 1), 0.0, 0.0, 0, 0, Vector2(0.45418325, 0.5041323), -1.443048, -1.443048, 0, 0, Vector2(1, 0.11570251), -0.29633987, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="Curve" id="Curve_g1dw6"]
 _data = [Vector2(0, 0.29464293), 0.0, 1.3483471, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -21,7 +23,16 @@ point_count = 2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5kg8m"]
 radius = 27.0
-height = 128.0
+height = 164.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yw30f"]
+shader = ExtResource("2_g1dw6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hrhgu"]
+shader = ExtResource("2_g1dw6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dw6"]
+shader = ExtResource("4_yw30f")
 
 [node name="Player" type="CharacterBody2D" unique_id=1920400418]
 collision_layer = 3
@@ -31,11 +42,8 @@ jump_charge_curve = SubResource("Curve_g1dw6")
 gravity_curve_falling = SubResource("Curve_qjkh3")
 gravity_curve_ascending = SubResource("Curve_g6k8r")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=395879290]
-scale = Vector2(0.42187503, 1)
-texture = ExtResource("1_oul6g")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=237216048]
+position = Vector2(0, 24)
 shape = SubResource("CapsuleShape2D_5kg8m")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1326999267]
@@ -47,11 +55,37 @@ drag_top_margin = 0.5
 drag_bottom_margin = 0.5
 editor_draw_drag_margin = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1055367648]
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer" unique_id=1425052482]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Coyote" type="Timer" parent="." unique_id=1876098243]
 wait_time = 0.1
 one_shot = true
 
 [node name="CameraShiftLeft" type="Timer" parent="." unique_id=1104615337]
 one_shot = true
+
+[node name="Body" type="Node2D" parent="." unique_id=269695878]
+
+[node name="Body" type="Sprite2D" parent="Body" unique_id=1041121907]
+material = SubResource("ShaderMaterial_yw30f")
+position = Vector2(0, 9)
+scale = Vector2(0.39843747, 0.921875)
+texture = ExtResource("1_oul6g")
+
+[node name="Head" type="Sprite2D" parent="Body" unique_id=395879290]
+material = SubResource("ShaderMaterial_hrhgu")
+position = Vector2(0, -32)
+scale = Vector2(0.640625, 0.625)
+texture = ExtResource("1_oul6g")
+
+[node name="Wheel" type="Sprite2D" parent="Body" unique_id=848331047]
+material = SubResource("ShaderMaterial_g1dw6")
+position = Vector2(0, 73)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_oul6g")
 
 [connection signal="timeout" from="CameraShiftLeft" to="." method="_on_camera_shift_left_timeout"]

@@ -60,3 +60,4 @@ crouch={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.56450856, 0.8210624, 0.8760647, 1)

@@ -1,0 +1,20 @@
+[gd_scene format=4 uid="uid://dnklju1pdnqei"]
+
+[ext_resource type="TileSet" uid="uid://d3lundmkg1rd8" path="res://tileset/tileset.tres" id="1_jwv3a"]
+[ext_resource type="TileSet" uid="uid://btjc28k7i68o5" path="res://tileset/components.tres" id="2_dopym"]
+[ext_resource type="PackedScene" uid="uid://bacd0gu1sywec" path="res://player/player.tscn" id="3_ootpb"]
+
+[node name="Level1" type="Node2D" unique_id=1282850187]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=281636122]
+tile_map_data = PackedByteArray("AAD9/wAABAABAAEAAAD+/wAABAABAAEAAAD//wAABAABAAEAAAAAAAAABAABAAEAAAABAAAABAABAAEAAAACAAAABAABAAEAAAD9////BAABAAAAAAD+////BAABAAAAAAD/////BAABAAAAAAAAAP//BAABAAAAAAABAP//BAABAAAAAAACAP//BAABAAAAAAACAAEABAABAAcAAAABAAEABAABAAcAAAAAAAEABAABAAcAAAD//wEABAABAAcAAAD+/wEABAABAAcAAAD9/wEABAABAAcAAAD8/wEABAAAAAcAAAD8/wAABAAAAAEAAAD8////BAAAAAAAAAADAAAABAAHAAEAAAADAAEABAAHAAcAAAADAP//BAAHAAAAAAA=")
+tile_set = ExtResource("1_jwv3a")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=541584960]
+tile_map_data = PackedByteArray("AAABAP//AAAAAAAAAQA=")
+tile_set = ExtResource("2_dopym")
+
+[node name="Player" parent="." unique_id=1920400418 instance=ExtResource("3_ootpb")]
+position = Vector2(-245, -147)
+
+[connection signal="body_entered" from="TileMapLayer2/Spike" to="TileMapLayer2/Spike" method="_on_body_entered"]
