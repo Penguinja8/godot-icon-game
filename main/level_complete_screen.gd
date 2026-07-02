@@ -1,4 +1,5 @@
 extends Control
 
 func _ready():
-	$Time.text = str(snappedf(GameState.get_level_timer(), 0.01))
+	var clear_time = GameState.get_level_timer()
+	$Time.text = str(snappedf(clear_time, 0.01))
