@@ -33,7 +33,7 @@ func _physics_process(delta):
 			$CameraShiftLeft.start()
 	else:
 		$CameraShiftLeft.stop()
-		$Camera2D.position = Vector2(350, 0)
+		$Camera2D.position = Vector2(450, 0)
 	# gravity
 	if not is_on_floor():
 		if velocity.y > 0: # falling
