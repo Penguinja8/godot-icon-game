@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://c3thql7ugxeya" path="res://player/head.gdshader" id="2_g1dw6"]
 [ext_resource type="Shader" uid="uid://dpwejalns03cp" path="res://player/wheel.gdshader" id="4_yw30f"]
 [ext_resource type="PackedScene" uid="uid://dax1aqcr08vgj" path="res://UI/HUD.tscn" id="5_qjkh3"]
+[ext_resource type="Shader" uid="uid://b50db6cu6q1ne" path="res://player/wheel_particles.gdshader" id="6_g6k8r"]
 
 [sub_resource type="Curve" id="Curve_yw30f"]
 _data = [Vector2(0.023904383, 0.6859504), 0.0, 2.189624, 0, 0, Vector2(0.123505965, 1), 0.0, 0.0, 0, 0, Vector2(0.83266926, 0.64615375), -1.121092, -1.121092, 0, 0, Vector2(1, 0.11570251), -0.29633987, 0.0, 0, 0]
@@ -34,6 +35,9 @@ shader = ExtResource("2_g1dw6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dw6"]
 shader = ExtResource("4_yw30f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1whla"]
+shader = ExtResource("6_g6k8r")
 
 [node name="Player" type="CharacterBody2D" unique_id=1920400418]
 collision_layer = 3
@@ -85,4 +89,20 @@ texture = ExtResource("1_oul6g")
 
 [node name="Hud" parent="." unique_id=243792426 instance=ExtResource("5_qjkh3")]
 
+[node name="WheelParticles" type="CPUParticles2D" parent="." unique_id=856685312]
+z_index = 1
+material = SubResource("ShaderMaterial_1whla")
+position = Vector2(0, 103)
+emitting = false
+texture = ExtResource("1_oul6g")
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 35.0
+angular_velocity_max = 10.0
+scale_amount_min = 0.1
+scale_amount_max = 0.15
+
 [connection signal="timeout" from="CameraShiftLeft" to="." method="_on_camera_shift_left_timeout"]
+[connection signal="finished" from="WheelParticles" to="." method="_on_wheel_particles_finished"]

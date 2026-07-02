@@ -42,9 +42,12 @@ func _physics_process(delta):
 			velocity.y += gravity * delta * gravity_curve_ascending.sample(velocity.y/MAX_JUMP_VELOCITY)
 		if velocity.y > MAX_FALL_SPEED:
 			velocity.y = MAX_FALL_SPEED
-
+	if not is_on_floor() or not velocity.x:
+		$WheelParticles.emitting = false
 	if is_on_floor():
 		$Coyote.start()
+		if velocity.x and not $WheelParticles.emitting:
+			$WheelParticles.emitting = true
 	if Input.is_action_pressed("jump"):
 		velocity.x -= JUMP_CHARGE_DECEL * signf(velocity.x) * delta
 		if Input.is_action_just_pressed("jump"):
