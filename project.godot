@@ -48,8 +48,8 @@ crouch={
 
 [layer_names]
 
-2d_physics/layer_1="Player Collisions"
-2d_physics/layer_2="Player damage"
+2d_physics/layer_1="Player Physics Collisions"
+2d_physics/layer_2="Player scanning"
 
 [physics]
 

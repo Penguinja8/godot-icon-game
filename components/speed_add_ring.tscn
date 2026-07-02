@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://6g618bauykv1"]
+
+[ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="1_1gd6y"]
+[ext_resource type="Script" uid="uid://bgs47xhr7iulx" path="res://components/speed_add_ring.gd" id="1_jgme6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgme6"]
+size = Vector2(69, 251)
+
+[node name="SpeedAddRing" type="Area2D" unique_id=1860347160]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_jgme6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1144136789]
+scale = Vector2(0.5, 2)
+texture = ExtResource("1_1gd6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2056389939]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_jgme6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

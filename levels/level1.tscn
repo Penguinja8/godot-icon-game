@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://d3lundmkg1rd8" path="res://tileset/tileset.tres" id="1_jwv3a"]
 [ext_resource type="TileSet" uid="uid://btjc28k7i68o5" path="res://tileset/components.tres" id="2_dopym"]
 [ext_resource type="PackedScene" uid="uid://bacd0gu1sywec" path="res://player/player.tscn" id="3_ootpb"]
+[ext_resource type="PackedScene" uid="uid://bcuqpxhy2y5a3" path="res://components/teleporter.tscn" id="4_ua5ty"]
 
 [node name="Level1" type="Node2D" unique_id=1282850187]
 
@@ -11,13 +12,16 @@ tile_map_data = PackedByteArray("AAD9/wAABAABAAEAAAD+/wAABAABAAEAAAD//wAABAABAAE
 tile_set = ExtResource("1_jwv3a")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=541584960]
-tile_map_data = PackedByteArray("AAABAP//AAAAAAAAAQAHAP//AAAAAAAAAQAIAP//AAAAAAAAAgAJAP//AAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAAFAP//AAAAAAAABAA=")
 tile_set = ExtResource("2_dopym")
 
 [node name="Player" parent="." unique_id=1920400418 instance=ExtResource("3_ootpb")]
 position = Vector2(-245, -147)
 
-[connection signal="body_entered" from="TileMapLayer2/Spike" to="TileMapLayer2/Spike" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer2/@Area2D@19816" to="TileMapLayer2/@Area2D@19816" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer2/TallSpike" to="TileMapLayer2/TallSpike" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer2/@Area2D@19817" to="TileMapLayer2/@Area2D@19817" method="_on_body_entered"]
+[node name="Teleporter" parent="." unique_id=166830004 node_paths=PackedStringArray("destination_teleporter") instance=ExtResource("4_ua5ty")]
+destination_teleporter = NodePath(".")
+
+[node name="Teleporter2" parent="." unique_id=439915524 instance=ExtResource("4_ua5ty")]
+position = Vector2(875, -324)
+
+[connection signal="body_entered" from="TileMapLayer2/SpeedAddRing" to="TileMapLayer2/SpeedAddRing" method="_on_body_entered"]
