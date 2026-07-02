@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6g618bauykv1" path="res://components/speed_add_ring.tscn" id="4_0in7n"]
 [ext_resource type="PackedScene" uid="uid://yfc4yoipoa6s" path="res://components/arrow.tscn" id="5_0in7n"]
 [ext_resource type="PackedScene" uid="uid://la5kkofcavv8" path="res://components/goal_flag.tscn" id="6_kosfv"]
+[ext_resource type="PackedScene" uid="uid://udqe1r0yyi1w" path="res://components/death_zone.tscn" id="7_1whla"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_cwr2j"]
 scenes/1/scene = ExtResource("1_5f6jc")
@@ -14,6 +15,7 @@ scenes/3/scene = ExtResource("3_cf1qb")
 scenes/4/scene = ExtResource("4_0in7n")
 scenes/5/scene = ExtResource("5_0in7n")
 scenes/6/scene = ExtResource("6_kosfv")
+scenes/7/scene = ExtResource("7_1whla")
 
 [resource]
 tile_size = Vector2i(96, 96)

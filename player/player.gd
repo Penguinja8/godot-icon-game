@@ -67,16 +67,16 @@ func _physics_process(delta):
 		if is_on_floor():
 			if direction * velocity.x >= 0:
 				if abs(velocity.x) < MAIN_SPEED_CUTOFF:
-					velocity.x += ACCELERATION * delta * acceleration_curve.sample(velocity.x/MAIN_SPEED_CUTOFF) * direction
+					velocity.x += ACCELERATION * delta * acceleration_curve.sample(abs(velocity.x)/MAIN_SPEED_CUTOFF) * direction
 				else:
-					velocity.x += ACCELERATION * delta * (MAIN_SPEED_CUTOFF/(velocity.x ** 1.6)) * direction
+					velocity.x += ACCELERATION * delta * (MAIN_SPEED_CUTOFF/(abs(velocity.x) ** 1.6)) * direction
 			else:
 				velocity.x += DECELERATION * delta * direction
 		else:
 			if abs(velocity.x) < MAIN_SPEED_CUTOFF or direction * velocity.x <= 0:
 				velocity.x += AIR_CONTROL * delta * direction
 			else:
-				velocity.x += AIR_CONTROL * delta * direction * (MAIN_SPEED_CUTOFF/(velocity.x ** 1.6))
+				velocity.x += AIR_CONTROL * delta * direction * (MAIN_SPEED_CUTOFF/(abs(velocity.x) ** 1.6))
 		#velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	else:
 		if is_on_floor():
