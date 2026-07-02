@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const MAIN_SPEED_CUTOFF = 600.0
-const ACCELERATION = 400
+const ACCELERATION = 500
 @export var acceleration_curve: Curve
 
 const DECELERATION = 900
@@ -83,7 +83,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func die():
-	queue_free()
+	GameState.restart_level()
 
 
 func _on_camera_shift_left_timeout() -> void:

@@ -4,12 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://c417nimqe4alr" path="res://components/tall_spike.tscn" id="2_cwr2j"]
 [ext_resource type="PackedScene" uid="uid://da5fucgu8wt87" path="res://components/speed_mult_ring.tscn" id="3_cf1qb"]
 [ext_resource type="PackedScene" uid="uid://6g618bauykv1" path="res://components/speed_add_ring.tscn" id="4_0in7n"]
+[ext_resource type="PackedScene" uid="uid://yfc4yoipoa6s" path="res://components/arrow.tscn" id="5_0in7n"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_cwr2j"]
 scenes/1/scene = ExtResource("1_5f6jc")
 scenes/2/scene = ExtResource("2_cwr2j")
 scenes/3/scene = ExtResource("3_cf1qb")
 scenes/4/scene = ExtResource("4_0in7n")
+scenes/5/scene = ExtResource("5_0in7n")
 
 [resource]
 tile_size = Vector2i(96, 96)

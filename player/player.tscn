@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://dpwejalns03cp" path="res://player/wheel.gdshader" id="4_yw30f"]
 
 [sub_resource type="Curve" id="Curve_yw30f"]
-_data = [Vector2(0.023904383, 0.6859504), 0.0, 2.189624, 0, 0, Vector2(0.123505965, 1), 0.0, 0.0, 0, 0, Vector2(0.45418325, 0.5041323), -1.443048, -1.443048, 0, 0, Vector2(1, 0.11570251), -0.29633987, 0.0, 0, 0]
+_data = [Vector2(0.023904383, 0.6859504), 0.0, 2.189624, 0, 0, Vector2(0.123505965, 1), 0.0, 0.0, 0, 0, Vector2(0.83266926, 0.64615375), -1.121092, -1.121092, 0, 0, Vector2(1, 0.11570251), -0.29633987, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="Curve" id="Curve_g1dw6"]
