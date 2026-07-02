@@ -16,4 +16,4 @@ func restart_level():
 	get_tree().call_deferred("change_scene_to_file", get_tree().root.get_child(-1).scene_file_path)
 
 func level_complete():
-	get_tree().change_scene_to_file("res://main/level_complete_screen.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://main/level_complete_screen.tscn")
