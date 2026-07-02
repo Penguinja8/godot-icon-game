@@ -2,6 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="1_0tvs8"]
 [ext_resource type="Script" uid="uid://caowgwm04mail" path="res://components/goal_flag.gd" id="1_we3uf"]
+[ext_resource type="Shader" uid="uid://dnbu5ws2xi3t" path="res://components/goal_flag_post.gdshader" id="2_f0bc6"]
+[ext_resource type="Shader" uid="uid://b50t14tm12dtp" path="res://components/goal_flag_flag.gdshader" id="4_p12xb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f0bc6"]
+shader = ExtResource("4_p12xb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p12xb"]
+shader = ExtResource("4_p12xb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i50wy"]
+shader = ExtResource("2_f0bc6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ij6q6"]
+shader = ExtResource("2_f0bc6")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i50wy"]
 size = Vector2(197, 317)
@@ -11,29 +25,34 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_we3uf")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=603104909]
-position = Vector2(0, 21)
-scale = Vector2(1, 0.2)
-texture = ExtResource("1_0tvs8")
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=733791447]
-position = Vector2(0, -122)
-scale = Vector2(0.2, 2.15625)
-texture = ExtResource("1_0tvs8")
-
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=580464794]
-position = Vector2(-48, -170.99998)
+material = SubResource("ShaderMaterial_f0bc6")
+position = Vector2(-56, -170.99998)
 rotation = 0.5235988
 scale = Vector2(1, 0.5)
 texture = ExtResource("1_0tvs8")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=575211085]
-position = Vector2(-47.999992, -201.99998)
+material = SubResource("ShaderMaterial_p12xb")
+position = Vector2(-55.999996, -201.99998)
 rotation = -0.5235988
 scale = Vector2(1, 0.5)
 texture = ExtResource("1_0tvs8")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=603104909]
+material = SubResource("ShaderMaterial_i50wy")
+position = Vector2(0, 21)
+scale = Vector2(1, 0.2)
+texture = ExtResource("1_0tvs8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=733791447]
+material = SubResource("ShaderMaterial_ij6q6")
+position = Vector2(0, -122)
+scale = Vector2(0.2, 2.15625)
+texture = ExtResource("1_0tvs8")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1339026803]
+visible = false
 position = Vector2(-0.5, -126.5)
 shape = SubResource("RectangleShape2D_i50wy")
 

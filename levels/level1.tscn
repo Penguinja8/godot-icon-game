@@ -39,4 +39,4 @@ shape = SubResource("RectangleShape2D_vxcvu")
 position = Vector2(5735, 940)
 shape = SubResource("RectangleShape2D_pdpul")
 
-[connection signal="body_entered" from="TileMapLayer2/@Area2D@88055" to="TileMapLayer2/@Area2D@88055" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer2/GoalFlag" to="TileMapLayer2/GoalFlag" method="_on_body_entered"]
