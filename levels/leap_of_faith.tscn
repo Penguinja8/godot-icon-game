@@ -14,5 +14,5 @@ tile_set = ExtResource("1_1spl6")
 position = Vector2(-86, -121)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1631831856]
-tile_map_data = PackedByteArray("AAAHAPz/AAAAAAAABQA=")
+tile_map_data = PackedByteArray("AAAHAPz/AAAAAAAABQAqAAYAAAAAAAAABgA=")
 tile_set = ExtResource("3_irvrl")

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dax1aqcr08vgj"]
+
+[ext_resource type="Script" uid="uid://bblimq7uo2wam" path="res://UI/hud.gd" id="1_yixhe"]
+
+[node name="Hud" type="CanvasLayer" unique_id=243792426]
+script = ExtResource("1_yixhe")
+
+[node name="TestSpeed" type="Label" parent="." unique_id=87504647]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Stopwatch" type="Label" parent="." unique_id=1615123416]
+offset_top = 29.0
+offset_right = 40.0
+offset_bottom = 52.0

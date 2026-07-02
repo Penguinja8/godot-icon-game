@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bxs7ya3q8jgxu" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Shader" uid="uid://c3thql7ugxeya" path="res://player/head.gdshader" id="2_g1dw6"]
 [ext_resource type="Shader" uid="uid://dpwejalns03cp" path="res://player/wheel.gdshader" id="4_yw30f"]
+[ext_resource type="PackedScene" uid="uid://dax1aqcr08vgj" path="res://UI/HUD.tscn" id="5_qjkh3"]
 
 [sub_resource type="Curve" id="Curve_yw30f"]
 _data = [Vector2(0.023904383, 0.6859504), 0.0, 2.189624, 0, 0, Vector2(0.123505965, 1), 0.0, 0.0, 0, 0, Vector2(0.83266926, 0.64615375), -1.121092, -1.121092, 0, 0, Vector2(1, 0.11570251), -0.29633987, 0.0, 0, 0]
@@ -55,12 +56,6 @@ drag_top_margin = 0.5
 drag_bottom_margin = 0.5
 editor_draw_drag_margin = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1055367648]
-
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer" unique_id=1425052482]
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="Coyote" type="Timer" parent="." unique_id=1876098243]
 wait_time = 0.1
 one_shot = true
@@ -87,5 +82,7 @@ material = SubResource("ShaderMaterial_g1dw6")
 position = Vector2(0, 73)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_oul6g")
+
+[node name="Hud" parent="." unique_id=243792426 instance=ExtResource("5_qjkh3")]
 
 [connection signal="timeout" from="CameraShiftLeft" to="." method="_on_camera_shift_left_timeout"]

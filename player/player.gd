@@ -21,8 +21,12 @@ const gravity = 1200
 @export var gravity_curve_falling: Curve
 @export var gravity_curve_ascending: Curve
 
+func _ready():
+	GameState.start_level_timer()
+
 func _physics_process(delta):
-	$Camera2D/CanvasLayer/Label.text = str(velocity.x)
+	if Input.is_action_just_pressed("ResetLevel"):
+		GameState.restart_level()
 	# camera
 	if velocity.x < 0:
 		if $CameraShiftLeft.is_stopped():

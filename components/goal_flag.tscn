@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://la5kkofcavv8"]
+
+[ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="1_0tvs8"]
+[ext_resource type="Script" uid="uid://caowgwm04mail" path="res://components/goal_flag.gd" id="1_we3uf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i50wy"]
+size = Vector2(197, 317)
+
+[node name="GoalFlag" type="Area2D" unique_id=1119240406]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_we3uf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=603104909]
+position = Vector2(0, 21)
+scale = Vector2(1, 0.2)
+texture = ExtResource("1_0tvs8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=733791447]
+position = Vector2(0, -122)
+scale = Vector2(0.2, 2.15625)
+texture = ExtResource("1_0tvs8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=580464794]
+position = Vector2(-48, -170.99998)
+rotation = 0.5235988
+scale = Vector2(1, 0.5)
+texture = ExtResource("1_0tvs8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=575211085]
+position = Vector2(-47.999992, -201.99998)
+rotation = -0.5235988
+scale = Vector2(1, 0.5)
+texture = ExtResource("1_0tvs8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1339026803]
+position = Vector2(-0.5, -126.5)
+shape = SubResource("RectangleShape2D_i50wy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
