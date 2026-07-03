@@ -3,7 +3,6 @@
 [ext_resource type="TileSet" uid="uid://d3lundmkg1rd8" path="res://tileset/tileset.tres" id="1_jwv3a"]
 [ext_resource type="TileSet" uid="uid://btjc28k7i68o5" path="res://tileset/components.tres" id="2_dopym"]
 [ext_resource type="PackedScene" uid="uid://bacd0gu1sywec" path="res://player/player.tscn" id="3_ootpb"]
-[ext_resource type="PackedScene" uid="uid://yfc4yoipoa6s" path="res://components/arrow.tscn" id="4_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://udqe1r0yyi1w" path="res://components/death_zone.tscn" id="5_61w3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxcvu"]
@@ -19,15 +18,11 @@ tile_map_data = PackedByteArray("AAD9/wAABAABAAEAAAD+/wAABAABAAEAAAD//wAABAABAAE
 tile_set = ExtResource("1_jwv3a")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=541584960]
-tile_map_data = PackedByteArray("AAAyAAQAAAAAAAAABQBLAAUAAAAAAAAABgA=")
+tile_map_data = PackedByteArray("AAAyAAQAAAAAAAAABQBLAAUAAAAAAAAABgA1AP3/AAAAAAAABVA=")
 tile_set = ExtResource("2_dopym")
 
 [node name="Player" parent="." unique_id=1920400418 instance=ExtResource("3_ootpb")]
 position = Vector2(-245, -147)
-
-[node name="Arrow" parent="." unique_id=1669658833 instance=ExtResource("4_ua5ty")]
-position = Vector2(5199, -476)
-rotation = 1.5707964
 
 [node name="DeathZone" parent="." unique_id=1071454273 instance=ExtResource("5_61w3m")]
 

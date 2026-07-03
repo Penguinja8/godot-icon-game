@@ -9,7 +9,6 @@ const AIR_BRAKE = .98
 const AIR_CONTROL = 200
 
 const JUMP_CHARGE_DECEL = 100
-
 const MAX_JUMP_VELOCITY = -700.0
 const MAX_FALL_SPEED = 400
 const MAX_JUMP_CHARGE = .6
