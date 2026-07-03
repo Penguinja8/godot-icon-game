@@ -75,7 +75,9 @@ func _physics_process(delta):
 			else:
 				velocity.x += DECELERATION * delta * direction
 		else:
-			if abs(velocity.x) < MAIN_SPEED_CUTOFF or direction * velocity.x <= 0:
+			if direction * velocity.x <= 0.0:
+				velocity.x += AIR_CONTROL * delta * direction
+			if abs(velocity.x) < MAIN_SPEED_CUTOFF:
 				velocity.x += AIR_CONTROL * delta * direction
 			else:
 				velocity.x += AIR_CONTROL * delta * direction * (MAIN_SPEED_CUTOFF/(abs(velocity.x) ** 1.6))

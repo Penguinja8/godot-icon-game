@@ -24,7 +24,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.8125001), -0.33673474, 0.0,
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16o40"]
-size = Vector2(63, 174)
+size = Vector2(61, 147.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yw30f"]
 shader = ExtResource("2_g1dw6")
@@ -47,7 +47,7 @@ gravity_curve_falling = SubResource("Curve_qjkh3")
 gravity_curve_ascending = SubResource("Curve_g6k8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=237216048]
-position = Vector2(0.5, 17)
+position = Vector2(0, 30.75)
 shape = SubResource("RectangleShape2D_16o40")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1326999267]
