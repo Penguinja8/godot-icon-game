@@ -9,13 +9,17 @@ script = ExtResource("1_iov1l")
 
 [node name="Time" type="Label" parent="." unique_id=976716635]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 583.0
+offset_top = 132.0
+offset_right = 623.0
+offset_bottom = 155.0
 
 [node name="ToLevelSelect" type="Button" parent="." unique_id=2029967017]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 704.0
+offset_top = 255.0
+offset_right = 774.0
+offset_bottom = 286.0
 text = "Go back"
 
 [connection signal="pressed" from="ToLevelSelect" to="." method="_on_to_level_select_pressed"]

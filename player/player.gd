@@ -20,12 +20,16 @@ const gravity = 1200
 @export var gravity_curve_falling: Curve
 @export var gravity_curve_ascending: Curve
 
+const PAUSE_MENU = preload("res://UI/pause_menu.tscn")
+
 func _ready():
 	GameState.start_level_timer()
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ResetLevel"):
 		GameState.restart_level()
+	if Input.is_action_just_pressed("pause"):
+		$Hud.call_deferred("add_child", PAUSE_MENU.instantiate())
 	# camera
 	if velocity.x < 0:
 		if $CameraShiftLeft.is_stopped():

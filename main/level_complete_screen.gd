@@ -7,7 +7,7 @@ func _ready():
 	else:
 		if clear_time < GameState.best_times[GameState.current_level_name]:
 			GameState.best_times[GameState.current_level_name] = clear_time
-	$Time.text = str(snappedf(clear_time, 0.01))
+	$Time.text = "Clear time: " + str(snappedf(clear_time, 0.01))
 
 
 func _on_to_level_select_pressed() -> void:

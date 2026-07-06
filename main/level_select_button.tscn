@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://nlnci3nhe54s"]
 
+[ext_resource type="Theme" uid="uid://bqvfjbcxflbrh" path="res://UI/UI.tres" id="1_5x4b8"]
 [ext_resource type="Script" uid="uid://4cf1iv6h32bc" path="res://main/level_select_button.gd" id="1_6n8r7"]
+[ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="2_r44c8"]
 
 [node name="LevelSelectButton" type="Control" unique_id=1425155114]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5x4b8")
 script = ExtResource("1_6n8r7")
 
 [node name="ShowPanel" type="Button" parent="." unique_id=2035545678]
@@ -16,12 +20,13 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+icon = ExtResource("2_r44c8")
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=768747991]
 visible = false
 layout_mode = 0
-offset_right = 149.0
-offset_bottom = 152.0
+offset_right = 128.0
+offset_bottom = 182.0
 
 [node name="VBox" type="VBoxContainer" parent="Panel" unique_id=692581042]
 layout_mode = 2
@@ -35,8 +40,12 @@ layout_mode = 2
 text = "Best Time:"
 
 [node name="StartButton" type="Button" parent="Panel/VBox" unique_id=1562045442]
+custom_minimum_size = Vector2(128, 128)
+custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_vertical = 3
-text = "hi"
+icon = ExtResource("2_r44c8")
+icon_alignment = 1
+expand_icon = true
 
 [connection signal="pressed" from="ShowPanel" to="." method="_on_show_panel_pressed"]

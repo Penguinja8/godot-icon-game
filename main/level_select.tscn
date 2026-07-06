@@ -30,3 +30,8 @@ columns = 6
 layout_mode = 2
 level_path = "res://levels/level1.tscn"
 level_name = "Level 1"
+
+[node name="LevelSelectButton2" parent="PanelContainer/BoxContainer" unique_id=756434353 instance=ExtResource("4_q0wi5")]
+layout_mode = 2
+level_path = "res://levels/spikes.tscn"
+level_name = "Spikes"
