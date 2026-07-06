@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://da5fucgu8wt87"]
 
 [ext_resource type="Script" uid="uid://c0b5jgjdymo27" path="res://components/speed_mult_ring.gd" id="1_qwhfw"]
+[ext_resource type="Shader" uid="uid://f2uq6cvj6vlf" path="res://components/speed_mult_ring.gdshader" id="2_hlu56"]
 [ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="2_sbixd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rtdc"]
+shader = ExtResource("2_hlu56")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i50wy"]
 size = Vector2(62, 251)
@@ -12,10 +16,12 @@ collision_mask = 2
 script = ExtResource("1_qwhfw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=471905432]
+material = SubResource("ShaderMaterial_5rtdc")
 scale = Vector2(0.5, 2)
 texture = ExtResource("2_sbixd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1526416645]
+visible = false
 position = Vector2(1, -1.5)
 shape = SubResource("RectangleShape2D_i50wy")
 

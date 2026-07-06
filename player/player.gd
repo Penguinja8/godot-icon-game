@@ -39,8 +39,11 @@ func _physics_process(delta):
 			velocity.y += gravity * delta * gravity_curve_falling.sample(abs(velocity.y)/MAX_FALL_SPEED)
 		else:
 			velocity.y += gravity * delta * gravity_curve_ascending.sample(velocity.y/MAX_JUMP_VELOCITY)
-		if velocity.y > MAX_FALL_SPEED:
-			velocity.y = MAX_FALL_SPEED
+		var calc_max_fall_speed = MAX_FALL_SPEED
+		if Input.is_action_pressed("down"):
+			calc_max_fall_speed *= 2
+		if velocity.y > calc_max_fall_speed:
+			velocity.y = calc_max_fall_speed
 	if not is_on_floor() or not velocity.x:
 		$WheelParticles.emitting = false
 	if is_on_floor():
