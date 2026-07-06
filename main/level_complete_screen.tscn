@@ -11,3 +11,11 @@ script = ExtResource("1_iov1l")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="ToLevelSelect" type="Button" parent="." unique_id=2029967017]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Go back"
+
+[connection signal="pressed" from="ToLevelSelect" to="." method="_on_to_level_select_pressed"]

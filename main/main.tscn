@@ -1,29 +1,18 @@
 [gd_scene format=3 uid="uid://bc5jgn1l7asty"]
 
 [ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="1_53q0u"]
-[ext_resource type="Shader" uid="uid://b0o7mbf4m2uwh" path="res://main/panel.gdshader" id="1_pjrb6"]
+[ext_resource type="Script" uid="uid://bu3vfm2450wx0" path="res://main/main.gd" id="1_xwkvk"]
+[ext_resource type="Theme" uid="uid://bqvfjbcxflbrh" path="res://UI/UI.tres" id="2_xwkvk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwkvk"]
-shader = ExtResource("1_pjrb6")
-shader_parameter/my_texture = ExtResource("1_53q0u")
+[node name="Main" type="CenterContainer" unique_id=2034895556]
+custom_minimum_size = Vector2(1280, 720)
+script = ExtResource("1_xwkvk")
 
-[node name="Main" type="Control" unique_id=1806337700]
-layout_mode = 3
-anchors_preset = 0
-
-[node name="Panel" type="PanelContainer" parent="." unique_id=6331939]
-material = SubResource("ShaderMaterial_xwkvk")
-layout_mode = 0
-offset_right = 330.0
-offset_bottom = 415.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1034047247]
+[node name="Start" type="Button" parent="." unique_id=2130399097]
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
+theme = ExtResource("2_xwkvk")
+icon = ExtResource("1_53q0u")
+expand_icon = true
 
-[node name="TextureButton" type="TextureButton" parent="Panel/VBoxContainer" unique_id=2061405480]
-layout_mode = 2
-texture_normal = ExtResource("1_53q0u")
-
-[node name="TextureButton2" type="TextureButton" parent="Panel/VBoxContainer" unique_id=1331966487]
-layout_mode = 2
-texture_normal = ExtResource("1_53q0u")
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

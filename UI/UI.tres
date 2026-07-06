@@ -1,0 +1,14 @@
+[gd_resource type="Theme" format=3 uid="uid://bqvfjbcxflbrh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xvyh0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_en18w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_28aw6"]
+
+[resource]
+Button/colors/icon_hover_color = Color(0.48805428, 0.48805398, 0.48805374, 1)
+Button/colors/icon_pressed_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+Button/styles/hover = SubResource("StyleBoxEmpty_xvyh0")
+Button/styles/normal = SubResource("StyleBoxEmpty_en18w")
+Button/styles/pressed = SubResource("StyleBoxEmpty_28aw6")

@@ -11,4 +11,5 @@ void fragment() {
 	COLOR.b -= 0.7;
 	COLOR.g = 0.0;
 	COLOR.r = 0.0;
+	COLOR.a = 0.4;
 }

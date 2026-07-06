@@ -2,4 +2,13 @@ extends Control
 
 func _ready():
 	var clear_time = GameState.get_level_timer()
+	if GameState.current_level_name not in GameState.best_times.keys():
+		GameState.best_times[GameState.current_level_name] = clear_time
+	else:
+		if clear_time < GameState.best_times[GameState.current_level_name]:
+			GameState.best_times[GameState.current_level_name] = clear_time
 	$Time.text = str(snappedf(clear_time, 0.01))
+
+
+func _on_to_level_select_pressed() -> void:
+	get_tree().change_scene_to_file("res://main/level_select.tscn")
