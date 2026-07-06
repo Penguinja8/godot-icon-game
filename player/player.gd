@@ -31,12 +31,14 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("pause"):
 		$Hud.call_deferred("add_child", PAUSE_MENU.instantiate())
 	# camera
+	if velocity.length() > MAIN_SPEED_CUTOFF:
+		$Camera2D.position_smoothing_speed = 5.0 + velocity.length()/600.0
 	if velocity.x < 0:
 		if $CameraShiftLeft.is_stopped():
 			$CameraShiftLeft.start()
 	else:
 		$CameraShiftLeft.stop()
-		$Camera2D.position = Vector2(450, 0)
+		$Camera2D.position = Vector2(500, 0)
 	# gravity
 	if not is_on_floor():
 		if velocity.y > 0: # falling

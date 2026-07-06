@@ -51,13 +51,12 @@ position = Vector2(0, 17.75)
 shape = SubResource("RectangleShape2D_16o40")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1326999267]
-position = Vector2(450, 0)
+position = Vector2(500, 0)
 process_callback = 0
 position_smoothing_enabled = true
 drag_vertical_enabled = true
-drag_vertical_offset = -0.1
 drag_top_margin = 0.5
-drag_bottom_margin = 0.5
+drag_bottom_margin = 0.4
 editor_draw_drag_margin = true
 
 [node name="Coyote" type="Timer" parent="." unique_id=1876098243]

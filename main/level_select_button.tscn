@@ -15,31 +15,21 @@ grow_vertical = 2
 theme = ExtResource("1_5x4b8")
 script = ExtResource("1_6n8r7")
 
-[node name="ShowPanel" type="Button" parent="." unique_id=2035545678]
-custom_minimum_size = Vector2(128, 128)
+[node name="VBox" type="VBoxContainer" parent="." unique_id=433928746]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-icon = ExtResource("2_r44c8")
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Panel" type="PanelContainer" parent="." unique_id=768747991]
-visible = false
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 182.0
-
-[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=692581042]
+[node name="LevelName" type="Label" parent="VBox" unique_id=1931114983]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
-alignment = 1
+text = "level"
 
-[node name="LevelName" type="Label" parent="Panel/VBox" unique_id=1931114983]
-layout_mode = 2
-
-[node name="BestTime" type="Label" parent="Panel/VBox" unique_id=203773119]
+[node name="BestTime" type="Label" parent="VBox" unique_id=203773119]
 layout_mode = 2
 text = "Best Time:"
 
-[node name="StartButton" type="Button" parent="Panel/VBox" unique_id=1562045442]
+[node name="StartButton" type="Button" parent="VBox" unique_id=1562045442]
 custom_minimum_size = Vector2(128, 128)
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
@@ -47,5 +37,3 @@ size_flags_vertical = 3
 icon = ExtResource("2_r44c8")
 icon_alignment = 1
 expand_icon = true
-
-[connection signal="pressed" from="ShowPanel" to="." method="_on_show_panel_pressed"]
