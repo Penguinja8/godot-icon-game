@@ -16,5 +16,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if cooldown.is_stopped():
 		destination_teleporter.cooldown.start()
 		body.teleported((destination_teleporter.global_position-global_position).length())
-		body.global_position = destination_teleporter.global_position + body.global_position - global_position
+		body.global_position = destination_teleporter.global_position + (body.global_position - global_position).slide(normal_dir) + (body.global_position - global_position).project(normal_dir).length() * destination_teleporter.normal_dir
 		body.velocity = velocity_mult * body.velocity.length() * destination_teleporter.normal_dir

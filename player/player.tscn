@@ -39,6 +39,7 @@ shader = ExtResource("4_yw30f")
 shader = ExtResource("6_g6k8r")
 
 [node name="Player" type="CharacterBody2D" unique_id=1920400418]
+z_index = 1
 collision_layer = 3
 script = ExtResource("1_rkbax")
 acceleration_curve = SubResource("Curve_yw30f")
