@@ -1,0 +1,26 @@
+[gd_scene format=4 uid="uid://cxk40h1lb6yy2"]
+
+[ext_resource type="TileSet" uid="uid://d3lundmkg1rd8" path="res://tileset/tileset.tres" id="1_drl78"]
+[ext_resource type="PackedScene" uid="uid://bcuqpxhy2y5a3" path="res://components/teleporter.tscn" id="2_pw7tx"]
+[ext_resource type="PackedScene" uid="uid://bacd0gu1sywec" path="res://player/player.tscn" id="3_jnwo7"]
+
+[node name="TeleporterLoop" type="Node2D" unique_id=2126180120]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1865066205]
+tile_map_data = PackedByteArray("AAD+/wAABAABAAEAAAD//wAABAABAAEAAAAAAAAABAABAAEAAAABAAAABAABAAEAAAD+////BAABAAAAAAD/////BAABAAAAAAAAAP//BAABAAAAAAABAP//BAABAAAAAAABAAEABAABAAcAAAAAAAEABAABAAcAAAD//wEABAABAAcAAAD+/wEABAABAAcAAAD8////BAAAAAAAAAD8/wAABAAAAAEAAAD8/wEABAAAAAcAAAADAP//BAAHAAAAAAADAAAABAAHAAEAAAADAAEABAAHAAcAAAACAP//BAABAAAAAAACAAAABAABAAEAAAACAAEABAABAAcAAAD9////BAABAAAAAAD9/wAABAABAAEAAAD9/wEABAABAAcAAAA=")
+tile_set = ExtResource("1_drl78")
+
+[node name="Teleporter" parent="." unique_id=166830004 node_paths=PackedStringArray("destination_teleporter") instance=ExtResource("2_pw7tx")]
+position = Vector2(264, 76)
+destination_teleporter = NodePath("../Teleporter2")
+normal_dir = Vector2(-1, 0)
+velocity_mult = 1.1
+
+[node name="Teleporter2" parent="." unique_id=381248944 node_paths=PackedStringArray("destination_teleporter") instance=ExtResource("2_pw7tx")]
+position = Vector2(-262, 77)
+orange = true
+destination_teleporter = NodePath("../Teleporter")
+velocity_mult = 1.1
+
+[node name="Player" parent="." unique_id=1920400418 instance=ExtResource("3_jnwo7")]
+position = Vector2(-97, -118)
