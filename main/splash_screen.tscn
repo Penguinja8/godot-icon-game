@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://ci6grrtk5j2u6"]
+
+[ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="1_nqob8"]
+[ext_resource type="Shader" uid="uid://dlvf525kmcwlg" path="res://main/splash_screen_letters.gdshader" id="1_ys1gh"]
+[ext_resource type="Shader" uid="uid://cls46y3il3i26" path="res://main/splash_screen_bg.gdshader" id="2_head8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nqob8"]
+shader = ExtResource("2_head8")
+
+[sub_resource type="Animation" id="Animation_1wx7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Word/Y:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(223, 327)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Word/G:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(428, 404)]
+}
+
+[sub_resource type="Animation" id="Animation_ys1gh"]
+resource_name = "play"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Word/Y:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.25, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(223, 327), Vector2(223, 200), Vector2(223, 327)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Word/G:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(428, 404), Vector2(428, 277), Vector2(428, 404)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1wx7p"]
+_data = {
+&"RESET": SubResource("Animation_1wx7p"),
+&"play": SubResource("Animation_ys1gh")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_head8"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ys1gh"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1wx7p"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6jdw5"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_816yt"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5cg0j"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_epes4"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hr1k6"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fnp34"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c0vkm"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vc7m"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymxvy"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xbmjf"]
+shader = ExtResource("1_ys1gh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cugg7"]
+shader = ExtResource("1_ys1gh")
+
+[node name="SplashScreen" type="Node2D" unique_id=104701855]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1839344521]
+z_index = -1
+material = SubResource("ShaderMaterial_nqob8")
+position = Vector2(633.5, 359.5)
+scale = Vector2(10.757813, 6.1953125)
+texture = ExtResource("1_nqob8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=906157413]
+libraries/ = SubResource("AnimationLibrary_1wx7p")
+autoplay = &"play"
+
+[node name="Word" type="Node2D" parent="." unique_id=1802673986]
+
+[node name="Y" type="Node2D" parent="Word" unique_id=720621008]
+position = Vector2(223, 327)
+
+[node name="TextureRect" type="Sprite2D" parent="Word/Y" unique_id=1403965445]
+material = SubResource("ShaderMaterial_head8")
+rotation = -0.7853982
+scale = Vector2(0.49218747, 0.99999994)
+texture = ExtResource("1_nqob8")
+
+[node name="TextureRect2" type="Sprite2D" parent="Word/Y" unique_id=166285879]
+material = SubResource("ShaderMaterial_ys1gh")
+position = Vector2(48.000008, 0)
+rotation = 0.7853982
+scale = Vector2(0.49218747, 0.99999994)
+texture = ExtResource("1_nqob8")
+
+[node name="TextureRect3" type="Sprite2D" parent="Word/Y" unique_id=1806639797]
+material = SubResource("ShaderMaterial_1wx7p")
+position = Vector2(24, 79.999985)
+scale = Vector2(0.492, 1.5)
+texture = ExtResource("1_nqob8")
+
+[node name="G" type="Node2D" parent="Word" unique_id=1886191338]
+position = Vector2(428, 404)
+
+[node name="TextureRect" type="Sprite2D" parent="Word/G" unique_id=1100123258]
+material = SubResource("ShaderMaterial_6jdw5")
+position = Vector2(0, -17.500021)
+scale = Vector2(0.49218747, 1.3359375)
+texture = ExtResource("1_nqob8")
+
+[node name="TextureRect2" type="Sprite2D" parent="Word/G" unique_id=1892225971]
+material = SubResource("ShaderMaterial_816yt")
+position = Vector2(70.12967, -108)
+rotation = 1.5707964
+scale = Vector2(0.49218747, 1.345776)
+texture = ExtResource("1_nqob8")
+
+[node name="TextureRect3" type="Sprite2D" parent="Word/G" unique_id=1156262250]
+material = SubResource("ShaderMaterial_5cg0j")
+position = Vector2(71.99997, 69)
+rotation = 1.5707964
+scale = Vector2(0.49218747, 1.3329691)
+texture = ExtResource("1_nqob8")
+
+[node name="TextureRect4" type="Sprite2D" parent="Word/G" unique_id=288466614]
+material = SubResource("ShaderMaterial_epes4")
+position = Vector2(136, 34.999996)
+scale = Vector2(0.3320312, 0.53906244)
+texture = ExtResource("1_nqob8")
+
+[node name="TextureRect5" type="Sprite2D" parent="Word/G" unique_id=819154784]
+material = SubResource("ShaderMaterial_hr1k6")
+position = Vector2(106, 4)
+scale = Vector2(0.67382807, 0.2070312)
+texture = ExtResource("1_nqob8")
+
+[node name="D" type="Node2D" parent="Word" unique_id=1420720835]
+position = Vector2(709, 401)
+
+[node name="TextureRect" type="Sprite2D" parent="Word/D" unique_id=1400898056]
+material = SubResource("ShaderMaterial_fnp34")
+position = Vector2(-4, -15.249998)
+scale = Vector2(0.49218747, 1.8867189)
+texture = ExtResource("1_nqob8")
+
+[node name="TextureRect2" type="Sprite2D" parent="Word/D" unique_id=142187371]
+material = SubResource("ShaderMaterial_c0vkm")
+position = Vector2(63.00003, -56)
+rotation = 2.3561945
+scale = Vector2(0.49218747, 1.345776)
+texture = ExtResource("1_nqob8")
+
+[node name="TextureRect3" type="Sprite2D" parent="Word/D" unique_id=1029624795]
+material = SubResource("ShaderMaterial_0vc7m")
+position = Vector2(58.99997, 31.000004)
+rotation = 0.7853982
+scale = Vector2(0.49218747, 1.3329691)
+texture = ExtResource("1_nqob8")
+
+[node name="A" type="Node2D" parent="Word" unique_id=1512094381]
+position = Vector2(959, 407)
+
+[node name="TextureRect" type="Sprite2D" parent="Word/A" unique_id=1195600572]
+material = SubResource("ShaderMaterial_ymxvy")
+position = Vector2(-4, -15.249998)
+rotation = 0.5235988
+scale = Vector2(0.49218747, 1.8867189)
+texture = ExtResource("1_nqob8")
+
+[node name="TextureRect2" type="Sprite2D" parent="Word/A" unique_id=1689138248]
+material = SubResource("ShaderMaterial_xbmjf")
+position = Vector2(84, -15.25)
+rotation = -0.5235988
+scale = Vector2(0.49218747, 1.8867189)
+texture = ExtResource("1_nqob8")
+
+[node name="TextureRect3" type="Sprite2D" parent="Word/A" unique_id=1400166148]
+material = SubResource("ShaderMaterial_cugg7")
+position = Vector2(42.000027, -2.999979)
+rotation = 1.5707964
+scale = Vector2(0.23593785, 1.1742197)
+texture = ExtResource("1_nqob8")
