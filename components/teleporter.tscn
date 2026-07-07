@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://bcuqpxhy2y5a3"]
 
 [ext_resource type="Script" uid="uid://b418qm0qm2vlq" path="res://components/teleporter.gd" id="1_1ur6e"]
+[ext_resource type="Shader" uid="uid://17ls03fr5ly3" path="res://components/teleporter_blue.gdshader" id="1_wsx3f"]
 [ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="2_wsx3f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsx3f"]
+resource_local_to_scene = true
+shader = ExtResource("1_wsx3f")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eixo1"]
 size = Vector2(69, 251)
@@ -12,11 +17,17 @@ collision_mask = 2
 script = ExtResource("1_1ur6e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=374640973]
+material = SubResource("ShaderMaterial_wsx3f")
 scale = Vector2(0.5, 2)
 texture = ExtResource("2_wsx3f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1517625931]
+visible = false
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_eixo1")
+
+[node name="ExitCooldown" type="Timer" parent="." unique_id=1187461789]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

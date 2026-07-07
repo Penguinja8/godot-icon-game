@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="2_r44c8"]
 
 [node name="LevelSelectButton" type="Control" unique_id=1425155114]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(128, 176)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

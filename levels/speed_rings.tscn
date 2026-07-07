@@ -14,7 +14,7 @@ size = Vector2(16031, 44)
 [node name="SpeedRings" type="Node2D" unique_id=1656465488]
 
 [node name="Components" type="TileMapLayer" parent="." unique_id=117658881]
-tile_map_data = PackedByteArray("AAAPAP3/AAAAAAAABWAJAP7/AAAAAAAAAwARAPv/AAAAAAAABQAnAP3/AAAAAAAAAwAkAPv/AAAAAAAABQBZAP3/AAAAAAAABVBbAP3/AAAAAAAABVBdAP3/AAAAAAAABVBfAP3/AAAAAAAABVBhAP3/AAAAAAAABVBmAAoAAAAAAAAAAwBkAAoAAAAAAAAAAwBXAP3/AAAAAAAABVBVAP3/AAAAAAAABVBTAP3/AAAAAAAABVBRAP3/AAAAAAAABVB1AAcAAAAAAAAABQBzAAkAAAAAAAAABWCiAAsAAAAAAAAABgA=")
+tile_map_data = PackedByteArray("AAAPAP3/AAAAAAAABWAJAP7/AAAAAAAAAwARAPv/AAAAAAAABQAnAP3/AAAAAAAAAwAkAPv/AAAAAAAABQBZAP3/AAAAAAAABVBbAP3/AAAAAAAABVBdAP3/AAAAAAAABVBfAP3/AAAAAAAABVBhAP3/AAAAAAAABVBXAP3/AAAAAAAABVBVAP3/AAAAAAAABVBTAP3/AAAAAAAABVBRAP3/AAAAAAAABVB1AAcAAAAAAAAABQBzAAkAAAAAAAAABWCiAAsAAAAAAAAABgBnAAoAAAAAAAAAAwBmAAoAAAAAAAAAAwA=")
 tile_set = ExtResource("2_5rtdc")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1214236148]
@@ -38,8 +38,8 @@ shape = SubResource("RectangleShape2D_5kg8m")
 position = Vector2(14030.5, 1461)
 shape = SubResource("RectangleShape2D_jyp3o")
 
-[connection signal="body_entered" from="Components/@Area2D@27367" to="Components/@Area2D@27367" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@27369" to="Components/@Area2D@27369" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@27376" to="Components/@Area2D@27376" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@27377" to="Components/@Area2D@27377" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@27384" to="Components/@Area2D@27384" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/SpeedMultRing" to="Components/SpeedMultRing" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@48498" to="Components/@Area2D@48498" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/GoalFlag" to="Components/GoalFlag" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@48934" to="Components/@Area2D@48934" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@48935" to="Components/@Area2D@48935" method="_on_body_entered"]
