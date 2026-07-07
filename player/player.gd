@@ -31,8 +31,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("pause"):
 		$Hud.call_deferred("add_child", PAUSE_MENU.instantiate())
 	# camera
-	if velocity.length() > MAIN_SPEED_CUTOFF:
-		$Camera2D.position_smoothing_speed = 5.0 + velocity.length()/600.0
+	if $TeleportCameraBoost.is_stopped():
+		if velocity.length() > MAIN_SPEED_CUTOFF:
+			$Camera2D.position_smoothing_speed = 5.0 + velocity.length()/600.0
+		else:
+			$Camera2D.position_smoothing_speed = 5.0
 	if velocity.x < 0:
 		if $CameraShiftLeft.is_stopped():
 			$CameraShiftLeft.start()
@@ -98,6 +101,10 @@ func _physics_process(delta):
 			velocity.x *= AIR_BRAKE
 	$Body/Wheel.rotation += delta * velocity.x/(10*PI)
 	move_and_slide()
+
+func teleported(distance):
+	$Camera2D.position_smoothing_speed = distance/50
+	$TeleportCameraBoost.start()
 
 func die():
 	GameState.restart_level()

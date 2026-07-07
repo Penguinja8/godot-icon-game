@@ -66,6 +66,10 @@ one_shot = true
 [node name="CameraShiftLeft" type="Timer" parent="." unique_id=1104615337]
 one_shot = true
 
+[node name="TeleportCameraBoost" type="Timer" parent="." unique_id=958187867]
+wait_time = 0.3
+one_shot = true
+
 [node name="Body" type="Node2D" parent="." unique_id=269695878]
 
 [node name="Body" type="Sprite2D" parent="Body" unique_id=1041121907]

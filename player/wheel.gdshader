@@ -6,9 +6,9 @@ void vertex() {
 
 void fragment() {
 	COLOR = texture(TEXTURE, UV); //read from texture
-	COLOR.b -= 0.6;
-	COLOR.r = 0.4;
-	COLOR.g = 0.4;
+	COLOR.b -= 0.4;
+	COLOR.r = 0.5;
+	COLOR.g = 0.5;
 }
 
 //void light() {

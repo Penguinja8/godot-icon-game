@@ -13,6 +13,7 @@ tile_set = ExtResource("1_7bqas")
 [node name="Teleporter" parent="." unique_id=166830004 node_paths=PackedStringArray("destination_teleporter") instance=ExtResource("2_k7nju")]
 position = Vector2(324, -145)
 destination_teleporter = NodePath("../Teleporter2")
+normal_dir = Vector2(-1, 0)
 
 [node name="Teleporter2" parent="." unique_id=1524818702 node_paths=PackedStringArray("destination_teleporter") instance=ExtResource("2_k7nju")]
 position = Vector2(-344, -140)
