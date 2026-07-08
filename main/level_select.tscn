@@ -19,49 +19,59 @@ script = ExtResource("1_h3dpf")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=354181114]
 material = SubResource("ShaderMaterial_nymmr")
-custom_minimum_size = Vector2(1000, 600)
+custom_minimum_size = Vector2(900, 600)
 layout_mode = 2
 
 [node name="BoxContainer" type="GridContainer" parent="PanelContainer" unique_id=1501707588]
 layout_mode = 2
-columns = 6
+columns = 7
 
-[node name="LevelSelectButton" parent="PanelContainer/BoxContainer" unique_id=1425155114 instance=ExtResource("4_q0wi5")]
+[node name="Intro" parent="PanelContainer/BoxContainer" unique_id=1425155114 instance=ExtResource("4_q0wi5")]
 layout_mode = 2
 level_path = "res://levels/level1.tscn"
-level_name = "Level 1"
+level_name = "Introduction"
 
-[node name="LevelSelectButton2" parent="PanelContainer/BoxContainer" unique_id=756434353 instance=ExtResource("4_q0wi5")]
+[node name="Spiky" parent="PanelContainer/BoxContainer" unique_id=756434353 instance=ExtResource("4_q0wi5")]
 layout_mode = 2
 level_path = "res://levels/spikes.tscn"
-level_name = "Spikes"
+level_name = "Spiky"
+level_clear_requirement = 1
 
-[node name="LevelSelectButton3" parent="PanelContainer/BoxContainer" unique_id=1780308487 instance=ExtResource("4_q0wi5")]
+[node name="RaisedStakes" parent="PanelContainer/BoxContainer" unique_id=1780308487 node_paths=PackedStringArray("prerequisite_level") instance=ExtResource("4_q0wi5")]
 layout_mode = 2
 level_path = "res://levels/level2.tscn"
-level_name = "Level 2"
+level_name = "Raised Stakes"
+level_clear_requirement = 2
+prerequisite_level = NodePath("../Spiky")
 
-[node name="LevelSelectButton4" parent="PanelContainer/BoxContainer" unique_id=22741457 instance=ExtResource("4_q0wi5")]
-layout_mode = 2
-level_path = "res://levels/speed_rings.tscn"
-level_name = "Speed rings"
-
-[node name="LevelSelectButton5" parent="PanelContainer/BoxContainer" unique_id=439614810 instance=ExtResource("4_q0wi5")]
-layout_mode = 2
-level_path = "res://levels/level3.tscn"
-level_name = "Level 3"
-
-[node name="LevelSelectButton6" parent="PanelContainer/BoxContainer" unique_id=1960017660 instance=ExtResource("4_q0wi5")]
-layout_mode = 2
-level_path = "res://levels/particle_accelerator.tscn"
-level_name = "Particle Accelerator"
-
-[node name="LevelSelectButton7" parent="PanelContainer/BoxContainer" unique_id=313647927 instance=ExtResource("4_q0wi5")]
+[node name="LeapOfFaith" parent="PanelContainer/BoxContainer" unique_id=313647927 instance=ExtResource("4_q0wi5")]
 layout_mode = 2
 level_path = "res://levels/leap_of_faith.tscn"
 level_name = "Leap of Faith"
+level_clear_requirement = 2
 
-[node name="LevelSelectButton8" parent="PanelContainer/BoxContainer" unique_id=509762767 instance=ExtResource("4_q0wi5")]
+[node name="Accelerator" parent="PanelContainer/BoxContainer" unique_id=22741457 instance=ExtResource("4_q0wi5")]
+layout_mode = 2
+level_path = "res://levels/speed_rings.tscn"
+level_name = "Accelerator"
+level_clear_requirement = 3
+
+[node name="Overspeed" parent="PanelContainer/BoxContainer" unique_id=439614810 node_paths=PackedStringArray("prerequisite_level") instance=ExtResource("4_q0wi5")]
+layout_mode = 2
+level_path = "res://levels/level3.tscn"
+level_name = "Overspeed"
+level_clear_requirement = 4
+prerequisite_level = NodePath("../Accelerator")
+
+[node name="ParticleAccelerator" parent="PanelContainer/BoxContainer" unique_id=1960017660 node_paths=PackedStringArray("prerequisite_level") instance=ExtResource("4_q0wi5")]
+layout_mode = 2
+level_path = "res://levels/particle_accelerator.tscn"
+level_name = "Particle Accelerator"
+level_clear_requirement = 4
+prerequisite_level = NodePath("../Accelerator")
+
+[node name="Portal" parent="PanelContainer/BoxContainer" unique_id=509762767 instance=ExtResource("4_q0wi5")]
 layout_mode = 2
 level_path = "res://levels/teleporters.tscn"
-level_name = "teleporters"
+level_name = "Portal"
+level_clear_requirement = 7

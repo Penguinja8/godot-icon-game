@@ -5,6 +5,9 @@ var level_timer = 0.0
 var current_level_name: String
 var level_path: String
 
+## debug option to have all levels show in the level select, always
+var debug_force_show_all_levels = false
+
 func _process(delta):
 	level_timer += delta
 
