@@ -66,7 +66,7 @@ prerequisite_level = NodePath("../Accelerator")
 [node name="ParticleAccelerator" parent="PanelContainer/BoxContainer" unique_id=1960017660 node_paths=PackedStringArray("prerequisite_level") instance=ExtResource("4_q0wi5")]
 layout_mode = 2
 level_path = "res://levels/particle_accelerator.tscn"
-level_name = "Particle Accelerator"
+level_name = "Hadron"
 level_clear_requirement = 4
 prerequisite_level = NodePath("../Accelerator")
 

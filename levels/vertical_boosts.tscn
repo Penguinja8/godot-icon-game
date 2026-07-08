@@ -1,0 +1,20 @@
+[gd_scene format=4 uid="uid://bluht5576w2rp"]
+
+[ext_resource type="TileSet" uid="uid://d3lundmkg1rd8" path="res://tileset/tileset.tres" id="1_0h1it"]
+[ext_resource type="TileSet" uid="uid://btjc28k7i68o5" path="res://tileset/components.tres" id="2_vcl0d"]
+[ext_resource type="PackedScene" uid="uid://bacd0gu1sywec" path="res://player/player.tscn" id="3_5u8rv"]
+
+[node name="VerticalBoosts" type="Node2D" unique_id=67159755]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=756900326]
+tile_map_data = PackedByteArray("AAD+/wAABAABAAEAAAD//wAABAABAAEAAAAAAAAABAABAAEAAAABAAAABAABAAEAAAD9////BAAAAAAAAAD+////BAABAAAAAAD/////BAABAAAAAAAAAP//BAABAAAAAAABAP//BAABAAAAAAACAP//BAAHAAAAAAACAAAABAAHAAEAAAACAAEABAAHAAcAAAABAAEABAABAAcAAAAAAAEABAABAAcAAAD//wEABAABAAcAAAD+/wEABAABAAcAAAD9/wEABAAAAAcAAAD9/wAABAAAAAEAAAA=")
+tile_set = ExtResource("1_0h1it")
+
+[node name="Components" type="TileMapLayer" parent="." unique_id=1667050745]
+tile_map_data = PackedByteArray("AAABAP3/AAAAAAAACAA=")
+tile_set = ExtResource("2_vcl0d")
+
+[node name="Player" parent="." unique_id=1920400418 instance=ExtResource("3_5u8rv")]
+position = Vector2(-160, -135)
+
+[connection signal="body_entered" from="Components/VerticalBoostRing" to="Components/VerticalBoostRing" method="_on_body_entered"]

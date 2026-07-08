@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://wovb4rtc8wgl"]
+
+[ext_resource type="Script" uid="uid://bbdacyai3nrph" path="res://levels/vertical_boost_ring.gd" id="1_0no3n"]
+[ext_resource type="Shader" uid="uid://c8ygcnwjcdvtp" path="res://levels/vertical_boost_ring.gdshader" id="2_35gqe"]
+[ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="2_v1pl8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1pl8"]
+shader = ExtResource("2_35gqe")
+shader_parameter/alpha = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
+size = Vector2(255, 48)
+
+[node name="VerticalBoostRing" type="Area2D" unique_id=874839671]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_0no3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2128292448]
+material = SubResource("ShaderMaterial_v1pl8")
+scale = Vector2(2, 0.4)
+texture = ExtResource("2_v1pl8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1064112060]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_5kg8m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
