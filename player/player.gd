@@ -5,7 +5,7 @@ const ACCELERATION = 500
 @export var acceleration_curve: Curve
 
 const DECELERATION = 900
-const AIR_BRAKE = .98
+const AIR_BRAKE = .99
 const AIR_CONTROL = 200
 
 const JUMP_CHARGE_DECEL = 100
@@ -23,9 +23,15 @@ const gravity = 1200
 const PAUSE_MENU = preload("res://UI/pause_menu.tscn")
 
 func _ready():
+	$StartOnGround.force_raycast_update()
+	global_position.y = $StartOnGround.get_collision_point().y - $CollisionShape2D.shape.size.y/2 + $CollisionShape2D.position.y
 	GameState.start_level_timer()
 
 func _physics_process(delta):
+	if not $DeathTimer.is_stopped():
+		if Input.is_action_just_pressed("ResetLevel") or Input.is_action_just_pressed("jump"):
+			_on_death_timer_timeout()
+		return
 	if Input.is_action_just_pressed("ResetLevel"):
 		GameState.restart_level()
 	if Input.is_action_just_pressed("pause"):
@@ -68,9 +74,9 @@ func _physics_process(delta):
 				jump_tween.tween_property(node, "scale", Vector2(node.scale.x, 0.7), MAX_JUMP_CHARGE)
 		jump_charge += delta
 	elif Input.is_action_just_released("jump"):
-		if not $Coyote.is_stopped():
+		if not $Coyote.is_stopped() or $CloseEnoughToJump.is_colliding():
 			velocity.y = MAX_JUMP_VELOCITY * jump_charge_curve.sample(clampf(jump_charge, 0, MAX_JUMP_CHARGE)/MAX_JUMP_CHARGE)
-			jump_charge = 0
+		jump_charge = 0
 		for tween in jump_tweens:
 			tween.kill()
 		for node in jump_charge_scaling:
@@ -88,6 +94,7 @@ func _physics_process(delta):
 				velocity.x += DECELERATION * delta * direction
 		else:
 			if direction * velocity.x <= 0.0:
+				velocity.x *= AIR_BRAKE
 				velocity.x += AIR_CONTROL * delta * direction
 			if abs(velocity.x) < MAIN_SPEED_CUTOFF:
 				velocity.x += AIR_CONTROL * delta * direction
@@ -102,13 +109,21 @@ func _physics_process(delta):
 	$Body/Wheel.rotation += delta * velocity.x/(10*PI)
 	move_and_slide()
 
-func teleported(distance):
+func teleported(distance, destination):
 	$Camera2D.position_smoothing_speed = distance/50
 	$TeleportCameraBoost.start()
+	if destination.normal_dir.x == -1:
+		_on_camera_shift_left_timeout()
 
 func die():
-	GameState.restart_level()
+	$DeathTimer.start()
+	for sprite: Sprite2D in $Body.get_children():
+		sprite.material.shader = load("res://player/death.gdshader")
 
 
 func _on_camera_shift_left_timeout() -> void:
-	$Camera2D.position = Vector2.ZERO
+	$Camera2D.position = Vector2(-200, 0)
+
+
+func _on_death_timer_timeout() -> void:
+	GameState.restart_level()

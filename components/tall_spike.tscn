@@ -11,7 +11,7 @@ shader = ExtResource("2_fmd5k")
 shader = ExtResource("2_fmd5k")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i50wy"]
-size = Vector2(96, 96)
+size = Vector2(80, 80)
 
 [node name="TallSpike" type="Area2D" unique_id=320102279]
 position = Vector2(0, -48)

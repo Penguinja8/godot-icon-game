@@ -3,6 +3,7 @@ extends Node
 var best_times = {}
 var level_timer = 0.0
 var current_level_name: String
+var level_path: String
 
 func _process(delta):
 	level_timer += delta

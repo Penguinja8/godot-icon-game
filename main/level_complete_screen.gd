@@ -12,3 +12,7 @@ func _ready():
 
 func _on_to_level_select_pressed() -> void:
 	get_tree().change_scene_to_file("res://main/level_select.tscn")
+
+
+func _on_restart_pressed() -> void:
+	get_tree().change_scene_to_file(GameState.level_path)

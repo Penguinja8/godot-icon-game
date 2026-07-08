@@ -60,3 +60,8 @@ level_name = "Particle Accelerator"
 layout_mode = 2
 level_path = "res://levels/leap_of_faith.tscn"
 level_name = "Leap of Faith"
+
+[node name="LevelSelectButton8" parent="PanelContainer/BoxContainer" unique_id=509762767 instance=ExtResource("4_q0wi5")]
+layout_mode = 2
+level_path = "res://levels/teleporters.tscn"
+level_name = "teleporters"

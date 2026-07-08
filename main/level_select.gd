@@ -7,4 +7,5 @@ func _ready():
 
 func _go_to_scene(path, level_name):
 	GameState.current_level_name = level_name
+	GameState.level_path = path
 	get_tree().change_scene_to_file(path)

@@ -14,6 +14,14 @@ offset_top = 132.0
 offset_right = 623.0
 offset_bottom = 155.0
 
+[node name="Restart" type="Button" parent="." unique_id=1009865095]
+layout_mode = 0
+offset_left = 613.0
+offset_top = 208.0
+offset_right = 678.0
+offset_bottom = 239.0
+text = "Restart"
+
 [node name="ToLevelSelect" type="Button" parent="." unique_id=2029967017]
 layout_mode = 0
 offset_left = 704.0
@@ -22,4 +30,5 @@ offset_right = 774.0
 offset_bottom = 286.0
 text = "Go back"
 
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="ToLevelSelect" to="." method="_on_to_level_select_pressed"]
