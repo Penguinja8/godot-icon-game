@@ -3,9 +3,9 @@ extends Control
 func _ready():
 	get_tree().paused = true
 
-#func _process(_delta):
-#	if Input.is_action_just_pressed("pause"):
-#		_on_resume_pressed()
+func _process(_delta):
+	if $CanExit.is_stopped() and Input.is_action_just_pressed("pause"):
+		_on_resume_pressed()
 
 func _on_resume_pressed() -> void:
 	get_tree().paused = false

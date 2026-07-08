@@ -33,7 +33,7 @@ func _physics_process(delta):
 	# camera
 	if $TeleportCameraBoost.is_stopped():
 		if velocity.length() > MAIN_SPEED_CUTOFF:
-			$Camera2D.position_smoothing_speed = 5.0 + velocity.length()/600.0
+			$Camera2D.position_smoothing_speed = 4.0 + velocity.length()/MAIN_SPEED_CUTOFF
 		else:
 			$Camera2D.position_smoothing_speed = 5.0
 	if velocity.x < 0:

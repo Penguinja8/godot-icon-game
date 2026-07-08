@@ -56,7 +56,7 @@ position = Vector2(500, 0)
 process_callback = 0
 position_smoothing_enabled = true
 drag_vertical_enabled = true
-drag_top_margin = 0.5
+drag_top_margin = 0.6
 drag_bottom_margin = 0.4
 editor_draw_drag_margin = true
 
