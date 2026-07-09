@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+## nesw
+@export var optional_camera_limits: Vector4 = Vector4(0,0,0,0)
+
 const MAIN_SPEED_CUTOFF = 600.0
 const ACCELERATION = 500
 @export var acceleration_curve: Curve
@@ -26,6 +29,14 @@ var rotation_delta = 0
 func _ready():
 	$StartOnGround.force_raycast_update()
 	global_position.y = $StartOnGround.get_collision_point().y - $CollisionShape2D.shape.size.y/2 + $CollisionShape2D.position.y
+	if optional_camera_limits.x:
+		$Camera2D.limit_top = optional_camera_limits.x
+	if optional_camera_limits.y:
+		$Camera2D.limit_right = optional_camera_limits.y
+	if optional_camera_limits.z:
+		$Camera2D.limit_bottom = optional_camera_limits.z
+	if optional_camera_limits.w:
+		$Camera2D.limit_left = optional_camera_limits.w
 	GameState.start_level_timer()
 
 func _physics_process(delta):
