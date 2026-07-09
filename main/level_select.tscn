@@ -75,3 +75,8 @@ layout_mode = 2
 level_path = "res://levels/teleporters.tscn"
 level_name = "Portal"
 level_clear_requirement = 7
+
+[node name="Lift" parent="PanelContainer/BoxContainer" unique_id=678511920 instance=ExtResource("4_q0wi5")]
+layout_mode = 2
+level_path = "res://levels/vertical_boosts.tscn"
+level_name = "Lift"

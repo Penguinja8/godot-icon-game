@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://yfc4yoipoa6s" path="res://components/arrow.tscn" id="5_0in7n"]
 [ext_resource type="PackedScene" uid="uid://la5kkofcavv8" path="res://components/goal_flag.tscn" id="6_kosfv"]
 [ext_resource type="PackedScene" uid="uid://udqe1r0yyi1w" path="res://components/death_zone.tscn" id="7_1whla"]
-[ext_resource type="PackedScene" uid="uid://wovb4rtc8wgl" path="res://levels/vertical_boost_ring.tscn" id="7_muw83"]
+[ext_resource type="PackedScene" uid="uid://wovb4rtc8wgl" path="res://components/vertical_boost_ring.tscn" id="7_muw83"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_cwr2j"]
 scenes/1/scene = ExtResource("1_5f6jc")

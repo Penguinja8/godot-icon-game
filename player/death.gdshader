@@ -5,5 +5,6 @@ void fragment() {
 	COLOR.b /= 2.0;
 	COLOR.r = 1.0;
 	COLOR.g = 0.1;
-	COLOR.a = 0.8;
+	if (COLOR.a > 0.0)
+		COLOR.a = 0.8;
 }

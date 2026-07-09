@@ -3,6 +3,14 @@
 [ext_resource type="Theme" uid="uid://bqvfjbcxflbrh" path="res://UI/UI.tres" id="1_5x4b8"]
 [ext_resource type="Script" uid="uid://4cf1iv6h32bc" path="res://main/level_select_button.gd" id="1_6n8r7"]
 [ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="2_r44c8"]
+[ext_resource type="Shader" uid="uid://boe8sr4jcalm3" path="res://main/level_select_button.gdshader" id="3_lr8fe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q0wi5"]
+shader = ExtResource("3_lr8fe")
+shader_parameter/base_color = Color(0, 0, 0, 1)
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/shine_speed = 5.0
+shader_parameter/shine_size = 0.001
 
 [node name="LevelSelectButton" type="Control" unique_id=1425155114]
 custom_minimum_size = Vector2(128, 176)
@@ -14,6 +22,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5x4b8")
 script = ExtResource("1_6n8r7")
+BRONZE = Color(0.5246761, 0.40234244, 0.22242427, 1)
+SILVER = Color(0.691152, 0.7401857, 0.7732532, 1)
+GOLD = Color(0.7203139, 0.66455775, 0.06390228, 1)
+RED = Color(0.9131102, 0.23440048, 0.28641054, 1)
 
 [node name="VBox" type="VBoxContainer" parent="." unique_id=433928746]
 layout_mode = 0
@@ -30,6 +42,7 @@ layout_mode = 2
 text = "Best Time:"
 
 [node name="StartButton" type="Button" parent="VBox" unique_id=1562045442]
+material = SubResource("ShaderMaterial_q0wi5")
 custom_minimum_size = Vector2(128, 128)
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2

@@ -1,12 +1,15 @@
 extends Area2D
 
 ## additive to vertical
-@export var boost_amount: float = 300.0
+@export var boost_amount: float = 400.0
 var disappearing
 
 func _on_body_entered(body):
+	if body.velocity.y > 0:
+		body.velocity.y = 0
 	body.velocity.y -= boost_amount
 	disappearing = true
+	set_deferred("monitoring", false)
 
 func _process(delta):
 	if disappearing:

@@ -21,6 +21,7 @@ const gravity = 1200
 @export var gravity_curve_ascending: Curve
 
 const PAUSE_MENU = preload("res://UI/pause_menu.tscn")
+var rotation_delta = 0
 
 func _ready():
 	$StartOnGround.force_raycast_update()
@@ -42,12 +43,13 @@ func _physics_process(delta):
 			$Camera2D.position_smoothing_speed = 4.0 + velocity.length()/MAIN_SPEED_CUTOFF
 		else:
 			$Camera2D.position_smoothing_speed = 5.0
-	if velocity.x < 0:
-		if $CameraShiftLeft.is_stopped():
-			$CameraShiftLeft.start()
-	else:
-		$CameraShiftLeft.stop()
-		$Camera2D.position = Vector2(500, 0)
+	if not $Camera2D.position.y:
+		if velocity.x < 0:
+			if $CameraShiftLeft.is_stopped():
+				$CameraShiftLeft.start()
+		else:
+			$CameraShiftLeft.stop()
+			$Camera2D.position.x = 500
 	# gravity
 	if not is_on_floor():
 		if velocity.y > 0: # falling
@@ -106,7 +108,9 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, DECELERATION*delta)
 		else:
 			velocity.x *= AIR_BRAKE
-	$Body/Wheel.rotation += delta * velocity.x/(10*PI)
+	if is_on_floor():
+		rotation_delta = delta * velocity.x/(10*PI)
+	$Body/Wheel.rotation += rotation_delta
 	move_and_slide()
 
 func teleported(distance, destination):
@@ -122,7 +126,8 @@ func die():
 
 
 func _on_camera_shift_left_timeout() -> void:
-	$Camera2D.position = Vector2(-200, 0)
+	if not $Camera2D.position.y:
+		$Camera2D.position.x = -200
 
 
 func _on_death_timer_timeout() -> void:

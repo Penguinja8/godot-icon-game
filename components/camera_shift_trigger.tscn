@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ci5utsstikb47"]
+
+[ext_resource type="Script" uid="uid://dq51wgps3r6cb" path="res://components/camera_shift_trigger.gd" id="1_gdu6h"]
+
+[node name="CameraShiftTrigger" type="Area2D" unique_id=917765815]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_gdu6h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

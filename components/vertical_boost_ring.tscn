@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://wovb4rtc8wgl"]
 
-[ext_resource type="Script" uid="uid://bbdacyai3nrph" path="res://levels/vertical_boost_ring.gd" id="1_0no3n"]
-[ext_resource type="Shader" uid="uid://c8ygcnwjcdvtp" path="res://levels/vertical_boost_ring.gdshader" id="2_35gqe"]
+[ext_resource type="Script" uid="uid://bbdacyai3nrph" path="res://components/vertical_boost_ring.gd" id="1_0no3n"]
+[ext_resource type="Shader" uid="uid://c8ygcnwjcdvtp" path="res://components/vertical_boost_ring.gdshader" id="2_35gqe"]
 [ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="2_v1pl8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v1pl8"]
+resource_local_to_scene = true
 shader = ExtResource("2_35gqe")
 shader_parameter/alpha = 1.0
 
