@@ -1,11 +1,21 @@
 [gd_scene format=3 uid="uid://d2chu33rufgae"]
 
 [ext_resource type="Script" uid="uid://bne4bs6m8d253" path="res://main/level_complete_screen.gd" id="1_iov1l"]
+[ext_resource type="Shader" uid="uid://boe8sr4jcalm3" path="res://main/level_select_button.gdshader" id="2_ts4m2"]
+[ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="3_48vxo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i50wy"]
+shader = ExtResource("2_ts4m2")
+shader_parameter/base_color = Color(0, 0, 0, 0)
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/shine_speed = 4.0
+shader_parameter/shine_size = 0.001
 
 [node name="LevelCompleteScreen" type="Control" unique_id=896316016]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_iov1l")
+colors = Array[Color]([Color(0.9137255, 0.23529412, 0.28627452, 1), Color(0.72156864, 0.6627451, 0.0627451, 1), Color(0.6901961, 0.7411765, 0.77254903, 1), Color(0.5254902, 0.40392157, 0.22352941, 1), Color(0, 0, 0, 1)])
 
 [node name="Time" type="Label" parent="." unique_id=976716635]
 layout_mode = 0
@@ -29,6 +39,11 @@ offset_top = 255.0
 offset_right = 774.0
 offset_bottom = 286.0
 text = "Go back"
+
+[node name="Medal" type="Sprite2D" parent="." unique_id=745840484]
+material = SubResource("ShaderMaterial_i50wy")
+position = Vector2(459, 182)
+texture = ExtResource("3_48vxo")
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="ToLevelSelect" to="." method="_on_to_level_select_pressed"]
