@@ -26,9 +26,12 @@ const gravity = 1200
 const PAUSE_MENU = preload("res://UI/pause_menu.tscn")
 var rotation_delta = 0
 
+var rail_mount = false
+var rail_offset = Vector2(0,0)
+
+
 func _ready():
-	$StartOnGround.force_raycast_update()
-	global_position.y = $StartOnGround.get_collision_point().y - $CollisionShape2D.shape.size.y/2 + $CollisionShape2D.position.y
+	force_to_ground()
 	if optional_camera_limits.x:
 		$Camera2D.limit_top = optional_camera_limits.x
 	if optional_camera_limits.y:
@@ -61,12 +64,25 @@ func _physics_process(delta):
 		else:
 			$CameraShiftLeft.stop()
 			$Camera2D.position.x = 500
+	if rail_mount:
+		$WheelParticles.emitting = false
+		global_position = rail_mount.global_position + rail_offset.rotated(rotation)
+		rotation = lerpf(rotation, rail_mount.rotation, delta * 4)
+		if Input.is_action_just_pressed("jump"):
+			rail_mount.get_parent().dismount()
+		return
+	rotation = lerpf(rotation, 0, delta*4)
+	if abs(rotation) < 0.1:
+		rotation = 0
 	# gravity
 	if not is_on_floor():
+		var fall_mult = 1
+		if Input.is_action_pressed("down"):
+			fall_mult = 1.3
 		if velocity.y > 0: # falling
-			velocity.y += gravity * delta * gravity_curve_falling.sample(abs(velocity.y)/MAX_FALL_SPEED)
+			velocity.y += fall_mult * gravity * delta * gravity_curve_falling.sample(abs(velocity.y)/MAX_FALL_SPEED)
 		else:
-			velocity.y += gravity * delta * gravity_curve_ascending.sample(velocity.y/MAX_JUMP_VELOCITY)
+			velocity.y += fall_mult * gravity * delta * gravity_curve_ascending.sample(velocity.y/MAX_JUMP_VELOCITY)
 		var calc_max_fall_speed = MAX_FALL_SPEED
 		if Input.is_action_pressed("down"):
 			calc_max_fall_speed *= 2
@@ -124,11 +140,29 @@ func _physics_process(delta):
 	$Body/Wheel.rotation += rotation_delta
 	move_and_slide()
 
+func mount_rail(path: PathFollow2D):
+	rail_mount = path
+	rail_offset = global_position - path.global_position
+	$GrindParticles.position = rail_offset
+	#$GrindParticles.emitting = true
+
+func dismount_rail(speed, dir):
+	rail_mount = null
+	velocity = Vector2(speed,speed) * dir
+	velocity = velocity.limit_length(speed)
+	$GrindParticles.emitting = false
+
 func teleported(distance, destination):
+	force_to_ground()
 	$Camera2D.position_smoothing_speed = distance/50
 	$TeleportCameraBoost.start()
 	if destination.normal_dir.x == -1:
 		_on_camera_shift_left_timeout()
+
+func force_to_ground():
+	$StartOnGround.force_raycast_update()
+	if $StartOnGround.is_colliding():
+		global_position.y = $StartOnGround.get_collision_point().y - $CollisionShape2D.shape.size.y/2 + $CollisionShape2D.position.y
 
 func die():
 	$DeathTimer.start()

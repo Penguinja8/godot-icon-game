@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://da5fucgu8wt87" path="res://components/speed_mult_ring.tscn" id="3_cf1qb"]
 [ext_resource type="PackedScene" uid="uid://yfc4yoipoa6s" path="res://components/arrow.tscn" id="5_0in7n"]
 [ext_resource type="PackedScene" uid="uid://la5kkofcavv8" path="res://components/goal_flag.tscn" id="6_kosfv"]
-[ext_resource type="PackedScene" uid="uid://udqe1r0yyi1w" path="res://components/death_zone.tscn" id="7_1whla"]
 [ext_resource type="PackedScene" uid="uid://wovb4rtc8wgl" path="res://components/vertical_boost_ring.tscn" id="7_muw83"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_cwr2j"]
@@ -14,7 +13,6 @@ scenes/2/scene = ExtResource("2_cwr2j")
 scenes/3/scene = ExtResource("3_cf1qb")
 scenes/5/scene = ExtResource("5_0in7n")
 scenes/6/scene = ExtResource("6_kosfv")
-scenes/7/scene = ExtResource("7_1whla")
 scenes/8/scene = ExtResource("7_muw83")
 
 [resource]

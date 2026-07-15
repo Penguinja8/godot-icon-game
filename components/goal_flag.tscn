@@ -34,7 +34,7 @@ texture = ExtResource("1_0tvs8")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=575211085]
 material = SubResource("ShaderMaterial_p12xb")
-position = Vector2(-55.999996, -201.99998)
+position = Vector2(-56, -202)
 rotation = -0.5235988
 scale = Vector2(1, 0.5)
 texture = ExtResource("1_0tvs8")

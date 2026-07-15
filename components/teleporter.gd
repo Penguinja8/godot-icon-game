@@ -13,8 +13,8 @@ func _ready():
 		$Sprite2D.material.shader = load("res://components/teleporter_orange.gdshader")
 
 func _on_body_entered(body: Node2D) -> void:
-	if cooldown.is_stopped():
+	if cooldown.is_stopped() and destination_teleporter:
 		destination_teleporter.cooldown.start()
+		body.global_position = destination_teleporter.global_position + ((body.global_position - global_position)/scale).slide(normal_dir).length() * destination_teleporter.normal_dir.orthogonal() + ((body.global_position - global_position)/scale).project(normal_dir).length() * destination_teleporter.normal_dir
 		body.teleported((destination_teleporter.global_position-global_position).length(), destination_teleporter)
-		body.global_position = destination_teleporter.global_position + (body.global_position - global_position).slide(normal_dir) + (body.global_position - global_position).project(normal_dir).length() * destination_teleporter.normal_dir
-		body.velocity = velocity_mult * Vector2(body.velocity.x*normal_dir.x, body.velocity.y*normal_dir.y).length() * destination_teleporter.normal_dir + body.velocity.slide(normal_dir).length() * body.velocity.slide(destination_teleporter.normal_dir).normalized()
+		body.velocity = destination_teleporter.velocity_mult * body.velocity.project(normal_dir).length() * destination_teleporter.normal_dir + body.velocity.slide(normal_dir).length() * destination_teleporter.normal_dir.orthogonal()#body.velocity.slide(destination_teleporter.normal_dir).normalized()

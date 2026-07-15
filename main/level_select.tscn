@@ -80,3 +80,15 @@ level_clear_requirement = 7
 layout_mode = 2
 level_path = "res://levels/vertical_boosts.tscn"
 level_name = "Lift"
+
+[node name="Rails" parent="PanelContainer/BoxContainer" unique_id=1464216726 node_paths=PackedStringArray("prerequisite_level") instance=ExtResource("4_q0wi5")]
+layout_mode = 2
+level_path = "res://levels/rails.tscn"
+level_name = "Rails"
+prerequisite_level = NodePath("../Portal")
+
+[node name="Roller Coaster" parent="PanelContainer/BoxContainer" unique_id=616773476 node_paths=PackedStringArray("prerequisite_level") instance=ExtResource("4_q0wi5")]
+layout_mode = 2
+level_path = "res://levels/level5.tscn"
+level_name = "Roller Coaster"
+prerequisite_level = NodePath("../Rails")

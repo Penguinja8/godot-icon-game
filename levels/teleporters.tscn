@@ -66,7 +66,7 @@ destination_teleporter = NodePath("../Teleporter6")
 normal_dir = Vector2(-1, 0)
 
 [node name="Teleporter6" parent="." unique_id=1277104512 node_paths=PackedStringArray("destination_teleporter") instance=ExtResource("2_k7nju")]
-position = Vector2(399, -1529)
+position = Vector2(31, -1505)
 orange = true
 destination_teleporter = NodePath("../Teleporter5")
 
@@ -164,22 +164,22 @@ shape = SubResource("RectangleShape2D_rocq3")
 position = Vector2(2069.9438, -2508.0752)
 
 [connection signal="body_entered" from="Offset/Spike" to="Offset/Spike" method="_on_body_entered"]
-[connection signal="body_entered" from="Offset/@Area2D@63057" to="Offset/@Area2D@63057" method="_on_body_entered"]
-[connection signal="body_entered" from="Offset/@Area2D@63058" to="Offset/@Area2D@63058" method="_on_body_entered"]
-[connection signal="body_entered" from="Offset/@Area2D@63059" to="Offset/@Area2D@63059" method="_on_body_entered"]
-[connection signal="body_entered" from="Offset/@Area2D@63060" to="Offset/@Area2D@63060" method="_on_body_entered"]
-[connection signal="body_entered" from="Offset/@Area2D@63061" to="Offset/@Area2D@63061" method="_on_body_entered"]
+[connection signal="body_entered" from="Offset/@Area2D@34954" to="Offset/@Area2D@34954" method="_on_body_entered"]
+[connection signal="body_entered" from="Offset/@Area2D@34955" to="Offset/@Area2D@34955" method="_on_body_entered"]
+[connection signal="body_entered" from="Offset/@Area2D@34956" to="Offset/@Area2D@34956" method="_on_body_entered"]
+[connection signal="body_entered" from="Offset/@Area2D@34957" to="Offset/@Area2D@34957" method="_on_body_entered"]
+[connection signal="body_entered" from="Offset/@Area2D@34958" to="Offset/@Area2D@34958" method="_on_body_entered"]
 [connection signal="body_entered" from="Components/Spike" to="Components/Spike" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63062" to="Components/@Area2D@63062" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63063" to="Components/@Area2D@63063" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63064" to="Components/@Area2D@63064" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63065" to="Components/@Area2D@63065" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63066" to="Components/@Area2D@63066" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63067" to="Components/@Area2D@63067" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63068" to="Components/@Area2D@63068" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63069" to="Components/@Area2D@63069" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63070" to="Components/@Area2D@63070" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63072" to="Components/@Area2D@63072" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63073" to="Components/@Area2D@63073" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@63074" to="Components/@Area2D@63074" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34959" to="Components/@Area2D@34959" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34960" to="Components/@Area2D@34960" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34961" to="Components/@Area2D@34961" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34962" to="Components/@Area2D@34962" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34963" to="Components/@Area2D@34963" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34964" to="Components/@Area2D@34964" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34965" to="Components/@Area2D@34965" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34966" to="Components/@Area2D@34966" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34967" to="Components/@Area2D@34967" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34969" to="Components/@Area2D@34969" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34970" to="Components/@Area2D@34970" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@34971" to="Components/@Area2D@34971" method="_on_body_entered"]
 [connection signal="body_entered" from="Components/GoalFlag" to="Components/GoalFlag" method="_on_body_entered"]

@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://dpwejalns03cp" path="res://player/wheel.gdshader" id="4_yw30f"]
 [ext_resource type="PackedScene" uid="uid://dax1aqcr08vgj" path="res://UI/HUD.tscn" id="5_qjkh3"]
 [ext_resource type="Shader" uid="uid://b50db6cu6q1ne" path="res://player/wheel_particles.gdshader" id="6_g6k8r"]
+[ext_resource type="Shader" uid="uid://e02yx5utbimf" path="res://components/rail/sparks.gdshader" id="7_boad6"]
 
 [sub_resource type="Curve" id="Curve_yw30f"]
 _data = [Vector2(0.023904383, 0.6859504), 0.0, 2.189624, 0, 0, Vector2(0.123505965, 1), 0.0, 0.0, 0, 0, Vector2(0.83266926, 0.64615375), -1.121092, -1.121092, 0, 0, Vector2(1, 0.3305785), -0.29633987, 0.0, 0, 0]
@@ -40,6 +41,12 @@ shader = ExtResource("4_yw30f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1whla"]
 shader = ExtResource("6_g6k8r")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgyib"]
+shader = ExtResource("7_boad6")
+
+[sub_resource type="Gradient" id="Gradient_hg6s5"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=1920400418]
 z_index = 1
@@ -117,10 +124,28 @@ one_shot = true
 
 [node name="StartOnGround" type="RayCast2D" parent="." unique_id=1590237269]
 position = Vector2(0, 104)
+target_position = Vector2(0, 80)
 
 [node name="CloseEnoughToJump" type="RayCast2D" parent="." unique_id=2105863995]
 position = Vector2(0, 17)
 target_position = Vector2(0, 80)
+
+[node name="GrindParticles" type="CPUParticles2D" parent="." unique_id=1877735458]
+z_index = 1
+material = SubResource("ShaderMaterial_rgyib")
+emitting = false
+amount = 64
+texture = ExtResource("1_oul6g")
+lifetime = 0.2
+direction = Vector2(0, -1)
+spread = 80.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+angle_max = 360.0
+scale_amount_min = 0.1
+scale_amount_max = 0.11
+color_ramp = SubResource("Gradient_hg6s5")
 
 [connection signal="timeout" from="CameraShiftLeft" to="." method="_on_camera_shift_left_timeout"]
 [connection signal="finished" from="WheelParticles" to="." method="_on_wheel_particles_finished"]
