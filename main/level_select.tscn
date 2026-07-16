@@ -92,3 +92,9 @@ layout_mode = 2
 level_path = "res://levels/level5.tscn"
 level_name = "Roller Coaster"
 prerequisite_level = NodePath("../Rails")
+
+[node name="LevelSelectButton" parent="PanelContainer/BoxContainer" unique_id=2043522547 instance=ExtResource("4_q0wi5")]
+layout_mode = 2
+level_path = "res://levels/branch.tscn"
+level_name = "Branch"
+level_clear_requirement = 9

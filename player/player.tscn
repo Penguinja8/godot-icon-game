@@ -67,7 +67,7 @@ process_callback = 0
 position_smoothing_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.6
-drag_bottom_margin = 0.4
+drag_bottom_margin = 0.0
 editor_draw_drag_margin = true
 
 [node name="Coyote" type="Timer" parent="." unique_id=1876098243]

@@ -154,7 +154,11 @@ func dismount_rail(speed, dir):
 
 func teleported(distance, destination):
 	force_to_ground()
-	$Camera2D.position_smoothing_speed = distance/50
+	if distance > 10000:
+		$Camera2D.position_smoothing_enabled = false
+		$Camera2D.position_smoothing_enabled = true
+	else:
+		$Camera2D.position_smoothing_speed = distance/50
 	$TeleportCameraBoost.start()
 	if destination.normal_dir.x == -1:
 		_on_camera_shift_left_timeout()
