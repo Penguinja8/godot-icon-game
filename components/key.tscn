@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dwflibxfh88qj"]
+
+[ext_resource type="Shader" uid="uid://1nv5vaev2n2g" path="res://components/key.gdshader" id="1_0ip5n"]
+[ext_resource type="Texture2D" uid="uid://dv7bgq7326o57" path="res://icon.svg" id="1_74a3v"]
+[ext_resource type="Script" uid="uid://c0l21ayq7crct" path="res://components/key.gd" id="1_atoe0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ip5n"]
+shader = ExtResource("1_0ip5n")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ip5n"]
+size = Vector2(64, 128)
+
+[node name="Key" type="Area2D" unique_id=338967648]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_atoe0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=23798673]
+material = SubResource("ShaderMaterial_0ip5n")
+scale = Vector2(0.5, 1)
+texture = ExtResource("1_74a3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1447090684]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_0ip5n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -13,6 +13,8 @@ func _ready():
 	$Area2D/CollisionPolygon2D.polygon += points
 
 func _process(delta):
+	if Engine.is_editor_hint():
+		return
 	if speed:
 		$PathFollow2D.progress += speed * delta
 		if abs(speed) > 10:

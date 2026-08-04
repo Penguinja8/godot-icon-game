@@ -1,8 +1,12 @@
+@tool
 extends Area2D
 class_name Teleporter
 
 ## make it orange, else make it blue
-@export var orange: bool = false
+@export var orange: bool = false:
+	set(new_bool):
+		orange = new_bool
+		_ready()
 @export var destination_teleporter: Teleporter
 @onready var cooldown = $ExitCooldown
 @export var normal_dir: Vector2 = Vector2(1,0)
