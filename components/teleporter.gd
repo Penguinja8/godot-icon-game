@@ -12,6 +12,8 @@ class_name Teleporter
 @export var normal_dir: Vector2 = Vector2(1,0)
 @export var velocity_mult: float = 1.0
 
+@export var flip_exit_side_velocity: int = 1
+
 func _ready():
 	if orange:
 		$Sprite2D.material.shader = load("res://components/teleporter_orange.gdshader")
@@ -21,4 +23,4 @@ func _on_body_entered(body: Node2D) -> void:
 		destination_teleporter.cooldown.start()
 		body.global_position = destination_teleporter.global_position + ((body.global_position - global_position)/scale).slide(normal_dir).length() * destination_teleporter.normal_dir.orthogonal() + ((body.global_position - global_position)/scale).project(normal_dir).length() * destination_teleporter.normal_dir
 		body.teleported((destination_teleporter.global_position-global_position).length(), destination_teleporter)
-		body.velocity = destination_teleporter.velocity_mult * body.velocity.project(normal_dir).length() * destination_teleporter.normal_dir + body.velocity.slide(normal_dir).length() * destination_teleporter.normal_dir.orthogonal()#body.velocity.slide(destination_teleporter.normal_dir).normalized()
+		body.velocity = destination_teleporter.velocity_mult * body.velocity.project(normal_dir).length() * destination_teleporter.normal_dir + body.velocity.slide(normal_dir).length() * destination_teleporter.normal_dir.orthogonal() * (flip_exit_side_velocity if flip_exit_side_velocity else 1)#body.velocity.slide(destination_teleporter.normal_dir).normalized()
