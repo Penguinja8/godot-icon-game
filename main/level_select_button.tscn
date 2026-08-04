@@ -13,7 +13,7 @@ shader_parameter/shine_speed = 5.0
 shader_parameter/shine_size = 0.001
 
 [node name="LevelSelectButton" type="Control" unique_id=1425155114]
-custom_minimum_size = Vector2(128, 176)
+custom_minimum_size = Vector2(128, 300)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,8 +29,9 @@ RED = Color(0.9131102, 0.23440048, 0.28641054, 1)
 
 [node name="VBox" type="VBoxContainer" parent="." unique_id=433928746]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 128.0
+offset_bottom = 200.0
+alignment = 1
 
 [node name="LevelName" type="Label" parent="VBox" unique_id=1931114983]
 custom_minimum_size = Vector2(128, 0)
