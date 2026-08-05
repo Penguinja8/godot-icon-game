@@ -26,4 +26,9 @@ texture = ExtResource("2_v1pl8")
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_5kg8m")
 
+[node name="RespawnTimer" type="Timer" parent="." unique_id=915469543]
+wait_time = 8.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

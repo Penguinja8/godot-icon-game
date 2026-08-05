@@ -15,4 +15,10 @@ func _process(delta):
 	if disappearing:
 		$Sprite2D.material.set_shader_parameter("alpha", $Sprite2D.material.get_shader_parameter("alpha")-delta*2)
 		if $Sprite2D.material.get_shader_parameter("alpha") < 0.0:
-			queue_free()
+			disappearing = false
+			$RespawnTimer.start()
+
+
+func _on_respawn_timer_timeout() -> void:
+	monitoring = true
+	$Sprite2D.material.set_shader_parameter("alpha", 1.0)
