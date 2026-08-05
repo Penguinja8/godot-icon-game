@@ -1,8 +1,11 @@
 extends Control
 
+class_name LevelCompleteScreen
+
 @export var colors: Array[Color]
 
 func _ready():
+	GameState.colors = colors
 	var clear_time = GameState.get_level_timer()
 	if GameState.current_level_name not in GameState.best_times.keys():
 		GameState.best_times[GameState.current_level_name] = clear_time

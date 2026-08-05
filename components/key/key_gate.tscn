@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dt3r7ish1hyn4"]
+
+[ext_resource type="Script" uid="uid://cbwbi482gv0ur" path="res://components/key/key_gate.gd" id="1_mg4fi"]
+
+[node name="KeyGate" type="StaticBody2D" unique_id=1740534101]
+script = ExtResource("1_mg4fi")

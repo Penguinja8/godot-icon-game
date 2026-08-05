@@ -6,12 +6,6 @@ class_name LevelSelectButton
 @export var level_clear_requirement: int = 0
 @export var prerequisite_level: LevelSelectButton
 
-@export var BLANK: Color
-@export var BRONZE: Color
-@export var SILVER: Color
-@export var GOLD: Color
-@export var RED: Color
-
 func _ready():
 	if GameState.debug_force_show_all_levels:
 		pass
@@ -26,10 +20,20 @@ func _ready():
 		$VBox/BestTime.text = "Best Time: " + str(snapped(GameState.best_times[level_name],0.01))
 	else:
 		$VBox/BestTime.text = "No time set"
-	var chosen_color = BLANK # later setup like time checking
-	if chosen_color == BLANK:
+	if level_name not in GameState.best_times:
+		$VBox/StartButton.material = null
+		return
+	var time_index = 4
+	var clear_time = GameState.best_times[level_name]
+	var medal_times = GameState.MEDAL_TIMES[level_name]
+	for i in range(len(medal_times)):
+		if clear_time <= medal_times[i]:
+			time_index = i
+			break
+	if time_index == 4:
 		$VBox/StartButton.material = null
 	else:
+		var chosen_color = GameState.colors[time_index]
 		$VBox/StartButton.material.set_shader_parameter("base_color", chosen_color)
 	
 

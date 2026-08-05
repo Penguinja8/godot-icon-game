@@ -24,6 +24,8 @@ var debug_force_show_all_levels = true
 
 var keys_collected: int = 0
 
+var colors
+
 func _process(delta):
 	level_timer += delta
 

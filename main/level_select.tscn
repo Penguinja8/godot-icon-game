@@ -30,6 +30,7 @@ columns = 7
 layout_mode = 2
 level_path = "res://levels/level1.tscn"
 level_name = "Introduction"
+level_clear_requirement = 0
 
 [node name="Spiky" parent="PanelContainer/BoxContainer" unique_id=756434353 instance=ExtResource("4_q0wi5")]
 layout_mode = 2
@@ -80,17 +81,20 @@ level_clear_requirement = 7
 layout_mode = 2
 level_path = "res://levels/vertical_boosts.tscn"
 level_name = "Lift"
+level_clear_requirement = 0
 
 [node name="Rails" parent="PanelContainer/BoxContainer" unique_id=1464216726 node_paths=PackedStringArray("prerequisite_level") instance=ExtResource("4_q0wi5")]
 layout_mode = 2
 level_path = "res://levels/rails.tscn"
 level_name = "Rails"
+level_clear_requirement = 0
 prerequisite_level = NodePath("../Portal")
 
 [node name="Roller Coaster" parent="PanelContainer/BoxContainer" unique_id=616773476 node_paths=PackedStringArray("prerequisite_level") instance=ExtResource("4_q0wi5")]
 layout_mode = 2
 level_path = "res://levels/level5.tscn"
 level_name = "Roller Coaster"
+level_clear_requirement = 0
 prerequisite_level = NodePath("../Rails")
 
 [node name="LevelSelectButton" parent="PanelContainer/BoxContainer" unique_id=2043522547 node_paths=PackedStringArray("prerequisite_level") instance=ExtResource("4_q0wi5")]
