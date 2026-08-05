@@ -16,7 +16,8 @@ const MEDAL_TIMES = {
 "Portal": [21.59, 22.10, 25.00, 29.50],
 "Lift": [23.05, 34.50, 38.00, 42.00],
 "Rails": [16.55, 21.80, 23.30, 25.00],
-"Roller Coaster": [17.39, 23.77, 24.50, 26.45]
+"Roller Coaster": [17.39, 23.77, 24.50, 26.45],
+"Branch": [34.79,42.50, 49.50, 55.00]
 }
 
 ## debug option to have all levels show in the level select, always
