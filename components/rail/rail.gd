@@ -1,3 +1,4 @@
+@tool
 extends Path2D
 
 var speed = 0
