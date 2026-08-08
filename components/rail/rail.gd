@@ -5,6 +5,7 @@ var speed = 0
 var player
 @export var gravity = 10
 var last_progress = 0.0
+@export var terminus_fix: bool = false
 
 func _ready():
 	var points = curve.get_baked_points()
@@ -34,6 +35,11 @@ func dismount():
 	$PathFollow2D2.progress -= sign(speed) * 0.1
 	player.dismount_rail(speed, $PathFollow2D2.global_position.direction_to($PathFollow2D.global_position))
 	speed = 0	
+
+func terminus_fix_pass(body):
+	$PathFollow2D.progress_ratio = find_closest_progress_on_path(body.global_position)
+	body.global_position = $PathFollow2D.global_position
+	_on_area_2d_body_entered(body)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.rail_mount:

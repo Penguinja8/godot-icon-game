@@ -64,6 +64,10 @@ func _physics_process(delta):
 		else:
 			$CameraShiftLeft.stop()
 			$Camera2D.position.x = 500
+	if $TerminusRailFix.is_colliding():
+		var rail = $TerminusRailFix.get_collider().get_parent()
+		if rail.terminus_fix:
+			rail.terminus_fix_pass(self)
 	if rail_mount:
 		$WheelParticles.emitting = false
 		global_position = rail_mount.global_position + rail_offset.rotated(rotation)

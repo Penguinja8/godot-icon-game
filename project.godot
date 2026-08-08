@@ -66,6 +66,7 @@ pause={
 
 2d_physics/layer_1="Player Physics Collisions"
 2d_physics/layer_2="Player scanning"
+2d_physics/layer_3="Terminus Fix"
 
 [physics]
 
