@@ -70,25 +70,32 @@ position = Vector2(-156, -139)
 [node name="Rail" parent="." unique_id=129901860 instance=ExtResource("3_7b75e")]
 position = Vector2(0, -98)
 curve = SubResource("Curve2D_7b75e")
+terminus_fix = false
 
 [node name="Rail2" parent="." unique_id=806304225 instance=ExtResource("3_7b75e")]
 curve = SubResource("Curve2D_j18s1")
+terminus_fix = false
 
 [node name="Rail3" parent="." unique_id=41857763 instance=ExtResource("3_7b75e")]
 curve = SubResource("Curve2D_1rprg")
+terminus_fix = false
 
 [node name="Rail4" parent="." unique_id=445769835 instance=ExtResource("3_7b75e")]
 position = Vector2(-19, 52)
 curve = SubResource("Curve2D_pxne5")
+terminus_fix = false
 
 [node name="Rail5" parent="." unique_id=1025090644 instance=ExtResource("3_7b75e")]
 curve = SubResource("Curve2D_1povf")
+terminus_fix = false
 
 [node name="Rail6" parent="." unique_id=1352413184 instance=ExtResource("3_7b75e")]
 curve = SubResource("Curve2D_7cdg3")
+terminus_fix = false
 
 [node name="Rail7" parent="." unique_id=1046593363 instance=ExtResource("3_7b75e")]
 curve = SubResource("Curve2D_reo8t")
+terminus_fix = false
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1533262231]
 tile_map_data = PackedByteArray("AABWAAcABAAHAAEAAABVAAgABAAAAAEAAAAfAAAABAAHAAEAAAAeAP//BAAAAAEAAAA=")
@@ -106,12 +113,12 @@ shape = SubResource("RectangleShape2D_1rprg")
 
 [connection signal="body_entered" from="Components/SpeedMultRing" to="Components/SpeedMultRing" method="_on_body_entered"]
 [connection signal="body_entered" from="Components/Spike" to="Components/Spike" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@49350" to="Components/@Area2D@49350" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@49351" to="Components/@Area2D@49351" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@49352" to="Components/@Area2D@49352" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@49223" to="Components/@Area2D@49223" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@49224" to="Components/@Area2D@49224" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@49225" to="Components/@Area2D@49225" method="_on_body_entered"]
 [connection signal="body_entered" from="Components/TallSpike" to="Components/TallSpike" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@49353" to="Components/@Area2D@49353" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@49354" to="Components/@Area2D@49354" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@49226" to="Components/@Area2D@49226" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@49227" to="Components/@Area2D@49227" method="_on_body_entered"]
 [connection signal="body_entered" from="Components/GoalFlag" to="Components/GoalFlag" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@49355" to="Components/@Area2D@49355" method="_on_body_entered"]
-[connection signal="body_entered" from="Components/@Area2D@49356" to="Components/@Area2D@49356" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@49228" to="Components/@Area2D@49228" method="_on_body_entered"]
+[connection signal="body_entered" from="Components/@Area2D@49229" to="Components/@Area2D@49229" method="_on_body_entered"]

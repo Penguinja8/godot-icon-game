@@ -19,9 +19,15 @@ func _ready():
 	if level_name in GameState.best_times.keys():
 		$VBox/BestTime.text = "Best Time: " + str(snapped(GameState.best_times[level_name],0.01))
 	else:
-		$VBox/BestTime.text = "No time set"
+		if level_name == "Sandbox":
+			$VBox/BestTime.text = ""
+		else:
+			$VBox/BestTime.text = "No time set"
 	if level_name not in GameState.best_times:
-		$VBox/StartButton.material = null
+		if level_name == "Sandbox":
+			$VBox/StartButton.material.set_shader_parameter("base_color", GameState.colors[0])
+		else:
+			$VBox/StartButton.material = null
 		return
 	var time_index = 4
 	var clear_time = GameState.best_times[level_name]
