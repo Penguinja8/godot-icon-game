@@ -4,8 +4,12 @@ class_name LevelCompleteScreen
 
 @export var colors: Array[Color]
 
+var disable: bool = false
+
 func _ready():
 	GameState.colors = colors
+	if disable:
+		return
 	var clear_time = GameState.get_level_timer()
 	if GameState.current_level_name not in GameState.best_times.keys():
 		GameState.best_times[GameState.current_level_name] = clear_time
@@ -22,6 +26,7 @@ func _ready():
 			time_index = i
 			break
 	$Medal.material.set_shader_parameter("base_color", colors[time_index])
+	GameState.save_game()
 
 func _on_to_level_select_pressed() -> void:
 	get_tree().change_scene_to_file("res://main/level_select.tscn")

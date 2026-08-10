@@ -17,7 +17,8 @@ const MEDAL_TIMES = {
 "Lift": [23.05, 34.50, 38.00, 42.00],
 "Rails": [16.55, 21.80, 23.30, 25.00],
 "Roller Coaster": [17.39, 23.77, 24.50, 26.45],
-"Branch": [34.20, 42.50, 49.50, 55.00]
+"Branch": [34.20, 42.50, 49.50, 55.00],
+"Terminus": [31.64, 35.00, 38.00, 43.5]
 }
 
 ## debug option to have all levels show in the level select, always
@@ -42,3 +43,18 @@ func restart_level():
 
 func level_complete():
 	get_tree().call_deferred("change_scene_to_file", "res://main/level_complete_screen.tscn")
+
+func save_game():
+	var save_file = FileAccess.open("user://godot-on-wheels.save", FileAccess.WRITE)
+	save_file.store_line(JSON.stringify(best_times))
+
+func load_game():
+	if not FileAccess.file_exists("user://godot-on-wheels.save"):
+		return
+
+	var save_file = FileAccess.open("user://godot-on-wheels.save", FileAccess.READ)
+	var times = save_file.get_line()
+	var json = JSON.new()
+	var parse = json.parse(times)
+	best_times = json.data
+	print(best_times)

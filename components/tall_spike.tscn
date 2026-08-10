@@ -11,7 +11,7 @@ shader = ExtResource("2_fmd5k")
 shader = ExtResource("2_fmd5k")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i50wy"]
-size = Vector2(80, 80)
+size = Vector2(70, 70)
 
 [node name="TallSpike" type="Area2D" unique_id=320102279]
 position = Vector2(0, -48)
@@ -35,7 +35,6 @@ scale = Vector2(0.8, 0.5)
 texture = ExtResource("2_i1qxe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1524676970]
-visible = false
 position = Vector2(0, 22)
 rotation = 0.7853982
 scale = Vector2(0.9999999, 0.9999999)
