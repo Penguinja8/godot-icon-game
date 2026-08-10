@@ -51,6 +51,11 @@ func _physics_process(delta):
 		GameState.restart_level()
 	if Input.is_action_just_pressed("pause"):
 		$Hud.call_deferred("add_child", PAUSE_MENU.instantiate())
+	if Input.is_action_pressed("zoom_out"):
+		$Camera2D.zoom = $Camera2D.zoom.lerp(Vector2(0.2,0.2), delta*4)
+		return
+	else:
+		$Camera2D.zoom = $Camera2D.zoom.lerp(Vector2(1,1), delta*6)
 	# camera
 	if $TeleportCameraBoost.is_stopped():
 		if velocity.length() > MAIN_SPEED_CUTOFF:
