@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="godot-icon-game"
+config/name="godot-on-wheels"
 run/main_scene="uid://bc5jgn1l7asty"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
