@@ -1,6 +1,6 @@
 extends CanvasLayer
 
 func _process(_delta):
-	$TestSpeed.text = str(get_parent().velocity.x)
-	$Stopwatch.text = str(snapped(GameState.level_timer, 0.01))
-	$TestFPS.text = str(Engine.get_frames_per_second())
+	var speed = snapped(abs(get_parent().velocity.x), 0.01)
+	$VBoxContainer/Speed.text = "Speed: " + ("%.2f" % speed) + " px/s"
+	$VBoxContainer/Stopwatch.text = "Time: " + str(snapped(GameState.level_timer, 0.01)) + " seconds"
