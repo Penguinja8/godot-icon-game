@@ -6,6 +6,7 @@ var player
 @export var gravity = 10
 var last_progress = 0.0
 @export var terminus_fix: bool = false
+@export var loop: bool = false
 
 func _ready():
 	var points = curve.get_baked_points()
@@ -25,7 +26,7 @@ func _process(delta):
 			$PathFollow2D2.progress = $PathFollow2D.progress + delta * sign(speed) * 10
 		speed += sign(speed) * sign($PathFollow2D2.global_position.y - $PathFollow2D.global_position.y) * sqrt(gravity * abs($PathFollow2D2.global_position.y - $PathFollow2D.global_position.y))
 		
-		if abs($PathFollow2D.progress_ratio - last_progress) > 0.9:
+		if not loop and abs($PathFollow2D.progress_ratio - last_progress) > 0.9:
 			dismount()
 		last_progress = $PathFollow2D.progress_ratio
 	

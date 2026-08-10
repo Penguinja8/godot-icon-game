@@ -4,6 +4,7 @@ extends CenterContainer
 func _ready():
 	for button in $PanelContainer/BoxContainer.get_children():
 		button.get_node("VBox/StartButton").pressed.connect(_go_to_scene.bind(button.level_path, button.level_name))
+	$Control/Sandbox.get_node("VBox/StartButton").pressed.connect(_go_to_scene.bind($Control/Sandbox.level_path, $Control/Sandbox.level_name))
 
 func _go_to_scene(path, level_name):
 	GameState.current_level_name = level_name

@@ -103,3 +103,27 @@ level_path = "res://levels/branch.tscn"
 level_name = "Branch"
 level_clear_requirement = 9
 prerequisite_level = NodePath("../Roller Coaster")
+
+[node name="Terminus" parent="PanelContainer/BoxContainer" unique_id=48284797 node_paths=PackedStringArray("prerequisite_level") instance=ExtResource("4_q0wi5")]
+layout_mode = 2
+level_path = "uid://c4utedduyyyn"
+level_name = "Terminus"
+level_clear_requirement = 12
+prerequisite_level = NodePath("../Branch")
+
+[node name="Control" type="Control" parent="." unique_id=2003147929]
+layout_mode = 2
+
+[node name="Sandbox" parent="Control" unique_id=922065140 instance=ExtResource("4_q0wi5")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 332.0
+offset_right = 460.0
+offset_bottom = 300.0
+grow_horizontal = 1
+grow_vertical = 1
+level_path = "uid://cm66xcr0vjs57"
+level_name = "Sandbox"
+level_clear_requirement = 0

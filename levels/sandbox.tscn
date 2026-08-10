@@ -1,0 +1,32 @@
+[gd_scene format=4 uid="uid://cm66xcr0vjs57"]
+
+[ext_resource type="TileSet" uid="uid://d3lundmkg1rd8" path="res://tileset/tileset.tres" id="1_wfhpi"]
+[ext_resource type="PackedScene" uid="uid://bacd0gu1sywec" path="res://player/player.tscn" id="2_whpuv"]
+[ext_resource type="PackedScene" uid="uid://c4dt25giuxb20" path="res://components/rail/rail.tscn" id="3_85hcc"]
+
+[sub_resource type="Curve2D" id="Curve2D_85hcc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 591, -15, 0, 0, 0, 0, 729, -119, 0, 0, 0, 0, 600, -231, 0, 0, 0, 0, 478, -110, 0, 0, 0, 0, 588, -16)
+}
+point_count = 5
+
+[node name="Sandbox" type="Node2D" unique_id=1172232305]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=722035103]
+tile_map_data = PackedByteArray("AAD9/wAABAABAAEAAAD+/wAABAABAAEAAAD//wAABAABAAEAAAAAAAAABAABAAEAAAABAAAABAABAAEAAAACAAAABAABAAEAAAD9////BAABAAAAAAD+////BAABAAAAAAD/////BAABAAAAAAAAAP//BAABAAAAAAABAP//BAABAAAAAAACAP//BAABAAAAAAADAP//BAAHAAAAAAADAAAABAAHAAEAAAADAAEABAAHAAcAAAACAAEABAABAAcAAAABAAEABAABAAcAAAAAAAEABAABAAcAAAD//wEABAABAAcAAAD+/wEABAABAAcAAAD9/wEABAABAAcAAAD8/wEABAAAAAcAAAD8/wAABAAAAAEAAAD8////BAAAAAAAAAA=")
+tile_set = ExtResource("1_wfhpi")
+
+[node name="Player" parent="." unique_id=1920400418 instance=ExtResource("2_whpuv")]
+position = Vector2(0, -131)
+
+[node name="Label" type="Label" parent="." unique_id=1850653064]
+offset_left = 138.0
+offset_top = -252.0
+offset_right = 261.0
+offset_bottom = -229.0
+text = "nothing here lol"
+
+[node name="Rail" parent="." unique_id=129901860 instance=ExtResource("3_85hcc")]
+curve = SubResource("Curve2D_85hcc")
+terminus_fix = false
+loop = true

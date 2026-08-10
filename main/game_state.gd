@@ -21,7 +21,7 @@ const MEDAL_TIMES = {
 }
 
 ## debug option to have all levels show in the level select, always
-var debug_force_show_all_levels = true
+var debug_force_show_all_levels = false
 
 var keys_collected: int = 0
 

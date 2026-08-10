@@ -25,16 +25,13 @@ script = ExtResource("1_6n8r7")
 level_path = null
 level_name = null
 level_clear_requirement = null
-BLANK = null
-BRONZE = Color(0.5246761, 0.40234244, 0.22242427, 1)
-SILVER = Color(0.691152, 0.7401857, 0.7732532, 1)
-GOLD = Color(0.7203139, 0.66455775, 0.06390228, 1)
-RED = Color(0.9131102, 0.23440048, 0.28641054, 1)
 
 [node name="VBox" type="VBoxContainer" parent="." unique_id=433928746]
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 200.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.1
+anchor_bottom = 0.27800003
+offset_bottom = -0.16001892
 alignment = 1
 
 [node name="LevelName" type="Label" parent="VBox" unique_id=1931114983]
