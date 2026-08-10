@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 func light_eyes():
 	$Sprite2D.material.shader = load("res://main/splash_screen_eyes.gdshader")

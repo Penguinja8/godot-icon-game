@@ -6,6 +6,11 @@
 
 [node name="Main" type="CenterContainer" unique_id=2034895556]
 custom_minimum_size = Vector2(1280, 720)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_xwkvk")
 
 [node name="Start" type="Button" parent="." unique_id=2130399097]
