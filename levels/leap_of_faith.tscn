@@ -3,6 +3,10 @@
 [ext_resource type="TileSet" uid="uid://d3lundmkg1rd8" path="res://tileset/tileset.tres" id="1_1spl6"]
 [ext_resource type="PackedScene" uid="uid://bacd0gu1sywec" path="res://player/player.tscn" id="2_dx3ky"]
 [ext_resource type="TileSet" uid="uid://btjc28k7i68o5" path="res://tileset/components.tres" id="3_irvrl"]
+[ext_resource type="PackedScene" uid="uid://udqe1r0yyi1w" path="res://components/death_zone.tscn" id="4_ihq85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
+size = Vector2(12356.25, 187)
 
 [node name="LeapOfFaith" type="Node2D" unique_id=1336676398]
 
@@ -16,3 +20,11 @@ position = Vector2(-86, -121)
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1631831856]
 tile_map_data = PackedByteArray("AAAHAPz/AAAAAAAABQAqAAYAAAAAAAAABgA=")
 tile_set = ExtResource("3_irvrl")
+
+[node name="DeathZone" parent="." unique_id=1071454273 instance=ExtResource("4_ihq85")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" unique_id=261940376]
+position = Vector2(2130.875, 1206)
+shape = SubResource("RectangleShape2D_5kg8m")
+
+[connection signal="body_entered" from="TileMapLayer2/GoalFlag" to="TileMapLayer2/GoalFlag" method="_on_body_entered"]
