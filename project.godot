@@ -13,6 +13,7 @@ config_version=5
 config/name="godot-on-wheels"
 run/main_scene="uid://ci6grrtk5j2u6"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -25,6 +26,7 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [gui]
 
